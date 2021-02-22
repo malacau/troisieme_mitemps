@@ -10,10 +10,84 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_125437) do
+ActiveRecord::Schema.define(version: 2021_02_22_165643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ligues", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "photo"
+    t.string "password"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_ligues_on_user_id"
+  end
+
+  create_table "line_ups", force: :cascade do |t|
+    t.integer "score"
+    t.bigint "user_id", null: false
+    t.bigint "round_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_line_ups_on_round_id"
+    t.index ["user_id"], name: "index_line_ups_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "ligue_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ligue_id"], name: "index_messages_on_ligue_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "score"
+    t.bigint "ligue_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ligue_id"], name: "index_participations_on_ligue_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "position"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.date "game_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "line_up_id", null: false
+    t.bigint "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["line_up_id"], name: "index_selections_on_line_up_id"
+    t.index ["player_id"], name: "index_selections_on_player_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +97,20 @@ ActiveRecord::Schema.define(version: 2021_02_22_125437) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ligues", "users"
+  add_foreign_key "line_ups", "rounds"
+  add_foreign_key "line_ups", "users"
+  add_foreign_key "messages", "ligues"
+  add_foreign_key "messages", "users"
+  add_foreign_key "participations", "ligues"
+  add_foreign_key "participations", "users"
+  add_foreign_key "players", "teams"
+  add_foreign_key "selections", "line_ups"
+  add_foreign_key "selections", "players"
 end
