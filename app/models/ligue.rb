@@ -4,5 +4,5 @@ class Ligue < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one_attached :photo
   validates :name, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
 end
