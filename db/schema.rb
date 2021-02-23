@@ -88,16 +88,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_141109) do
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
-  create_table "results", force: :cascade do |t|
-    t.integer "outcome"
-    t.bigint "team_id", null: false
-    t.bigint "round_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["round_id"], name: "index_results_on_round_id"
-    t.index ["team_id"], name: "index_results_on_team_id"
-  end
-
   create_table "rounds", force: :cascade do |t|
     t.date "game_date"
     t.datetime "created_at", precision: 6, null: false
@@ -143,8 +133,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_141109) do
   add_foreign_key "participations", "ligues"
   add_foreign_key "participations", "users"
   add_foreign_key "players", "teams"
-  add_foreign_key "results", "rounds"
-  add_foreign_key "results", "teams"
   add_foreign_key "selections", "line_ups"
   add_foreign_key "selections", "players"
 end

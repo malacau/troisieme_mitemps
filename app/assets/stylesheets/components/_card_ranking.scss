@@ -1,0 +1,15 @@
+.container-card-ranking {
+  padding: 0px 20px;
+  border-bottom: 2px solid #cfcfd873;
+}
+
+.card-ranking {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  & p {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 2px 0px;
+  }
+}
