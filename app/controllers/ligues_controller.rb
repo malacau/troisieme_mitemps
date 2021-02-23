@@ -1,5 +1,4 @@
 class LiguesController < ApplicationController
-
   def new
     @ligue = Ligue.new
   end
@@ -16,6 +15,7 @@ class LiguesController < ApplicationController
 
   def show
     @ligue = Ligue.find(params[:id])
+    @participation = Participation.new
   end
 
   def index
@@ -27,5 +27,4 @@ class LiguesController < ApplicationController
   def ligue_params
     params.require(:ligue).permit(:name,:description,:password,:photo)
   end
-
 end
