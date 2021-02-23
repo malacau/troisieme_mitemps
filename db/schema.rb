@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_165643) do
+ActiveRecord::Schema.define(version: 2021_02_23_105446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "ligues", force: :cascade do |t|
     t.string "name"
@@ -63,7 +84,18 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
     t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "average_rating"
     t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "outcome"
+    t.bigint "team_id", null: false
+    t.bigint "round_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_results_on_round_id"
+    t.index ["team_id"], name: "index_results_on_team_id"
   end
 
   create_table "rounds", force: :cascade do |t|
@@ -73,7 +105,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
   end
 
   create_table "selections", force: :cascade do |t|
-    t.integer "rating"
     t.bigint "line_up_id", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -103,6 +134,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "ligues", "users"
   add_foreign_key "line_ups", "rounds"
   add_foreign_key "line_ups", "users"
@@ -111,6 +143,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
   add_foreign_key "participations", "ligues"
   add_foreign_key "participations", "users"
   add_foreign_key "players", "teams"
+  add_foreign_key "results", "rounds"
+  add_foreign_key "results", "teams"
   add_foreign_key "selections", "line_ups"
   add_foreign_key "selections", "players"
 end
