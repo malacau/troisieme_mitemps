@@ -1,7 +1,7 @@
 
     <%= @ligue.name %> </strong> </div>
               <p><strong> <%= @ligue.description %> </strong> </p>
-              <p>Photo: <strong>   <%= cl_image_tag @ligue.photo.key, height: 325, width: 150%> </strong> </p>
+              <%# <p>Photo: <strong>   <%= cl_image_tag @ligue.photo.key, height: 325, width: 150 </strong> </p>%> %>
 
 <% if @ligue.user == current_user && @ligue.participations.count < 4 %>
 <%= simple_form_for [@ligue, @participation] do |f| %>
@@ -13,5 +13,7 @@
   <p><%= participation.user.nickname %></p>
   <p><%= participation.score %> </p>
 <% end %>
+
+<%= link_to "Discussion", ligue_messages_path(@ligue) %>
 
 
