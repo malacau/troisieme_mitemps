@@ -1,0 +1,32 @@
+.container-card-message {
+  padding: 0px 20px;
+}
+
+.card-message {
+  display: flex
+}
+
+.card-message-photo {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  & img {
+    height: 40px;
+    border-radius: 50%;
+
+  }
+}
+.card-message-name-content {
+  align-items: center;
+  & h3 {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 0px;
+  }
+
+  & p {
+    font-size: 12px;
+    margin-bottom: 0px;
+    line-height: 1;
+  }
+}

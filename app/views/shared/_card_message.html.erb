@@ -1,0 +1,13 @@
+<div class="container-card-message">
+  <div class="card-message">
+    <div class="card-message-photo">
+      <%= cl_image_tag current_user.photo.key%>
+    </div>
+    <div class="card-message-name-content">
+      <h3> <%= current_user.nickname %></h3>
+      <p>Le lorem ipsum est, en imprimerie, une suite de </p>
+    </div>
+  </div>
+</div>
+
+ <!-- render 'shared/card_message' -->
