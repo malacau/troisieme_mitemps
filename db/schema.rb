@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_165643) do
+ActiveRecord::Schema.define(version: 2021_02_23_100212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,18 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
     t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "average_rating"
     t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "outcome"
+    t.bigint "team_id", null: false
+    t.bigint "round_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_results_on_round_id"
+    t.index ["team_id"], name: "index_results_on_team_id"
   end
 
   create_table "rounds", force: :cascade do |t|
@@ -73,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
   end
 
   create_table "selections", force: :cascade do |t|
-    t.integer "rating"
     t.bigint "line_up_id", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -111,6 +121,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_165643) do
   add_foreign_key "participations", "ligues"
   add_foreign_key "participations", "users"
   add_foreign_key "players", "teams"
+  add_foreign_key "results", "rounds"
+  add_foreign_key "results", "teams"
   add_foreign_key "selections", "line_ups"
   add_foreign_key "selections", "players"
 end
