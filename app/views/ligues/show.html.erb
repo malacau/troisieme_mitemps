@@ -1,4 +1,3 @@
-
 <%= @ligue.name %> </strong> </div>
 <p><strong> <%= @ligue.description %> </strong> </p>
 <p>Photo: <strong>   <%= cl_image_tag @ligue.photo.key, height: 325, width: 150%> </strong> </p>
@@ -12,5 +11,7 @@
 <% @ligue.participations.each do |participation| %>
  <%= render 'shared/card-ranking', participation: participation%>
 <% end %>
+
+<%= link_to "Discussion", ligue_messages_path(@ligue) %>
 
 
