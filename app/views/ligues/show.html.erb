@@ -1,0 +1,11 @@
+<% if @ligue.user == current_user && @ligue.participations.count < 4 %>
+<%= simple_form_for [@ligue, @participation] do |f| %>
+  <%= f.association :user, label_method: :nickname%>
+  <%= f.button :submit, value: "Ajouter"%>
+<% end %>
+<% end %>
+<% @ligue.participations.each do |participation| %>
+  <p><%= participation.user.nickname %></p>
+  <p><%= participation.score %> </p>
+<% end %>
+
