@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row card-large bg-light shadow p-5 mb-5 margin-top-80px bg-white d-flex justify-content-center ">
+    <h1 class="header-shadow">Ajouter ma ligue</h1>
+    <div class="mx-auto">
+      <br>
+      <%= simple_form_for @ligue do |f| %>
+        <%= f.input :name, placeholder: "Les Brocasses" %>
+        <%= f.input :description, placeholder: "Compliqué cette appli" %>
+        <%= f.input :password, label: "Oh shit here we go again", placeholder: "Azerty"  %>
+        <%= f.input :photo, as: :file, label: "La photo " %>
+        <br>
+        <hr>
+        <%= f.button :submit, "Créer ma ligue", class: "btn btn-success"%>
+      <% end %>
+    </div>
+  </div>
+</div>
