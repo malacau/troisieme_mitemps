@@ -11,8 +11,8 @@ class MessagesController < ApplicationController
       @message.user = current_user
       @message.ligue = @ligue
       if @message.save
-        redirect_to ligue_messages_path(@ligue)
-      else 
+        redirect_to ligue_messages_path(@ligue, anchor: "message-#{@message.id}")
+      else
         render :index
       end
   end
