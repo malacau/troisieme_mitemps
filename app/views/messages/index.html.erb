@@ -1,19 +1,38 @@
-
-<% if @messages.empty?%>
-<h3> Aucune discussion en cours. Soyez le premier à envoyer un message 💪 </h3>
-<% else %>
-<h2> Discussion <%= @ligue.name %></h2>
-<% end %>
-
-<div class="container-messages" id="messages" data-chatroom-id="<%= @ligue.id %>">
-  <% @messages.each do |message| %>
-    <%= render 'shared/card_message', message: message %>
-  <% end %>
+<div class="main-container">
+  <div class="top-view">
+    <div class="top-view-title">
+      <h1><%= @ligue.name %></h1>
+    </div>
+    <div class="top-view-content">
+      <div class="top-view-content-main">
+        <div class="top-view-content-trophee">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="top-view-content-position">
+          <h3>Ma position</h3>
+          <h3>1er <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
+        </div>
+      </div>
+    </div>
+    <div class="players-information">
+      <p> <%= @ligue.users.count %> joueurs s'affrontent dans cette ligue</p>
+    </div>
+  </div>
+  <div class="languette-container">
+    <%= render 'shared/navbar-ligue' %>
+    <% if @messages.empty?%>
+    <h3> Aucune discussion en cours. Soyez le premier à envoyer un message 💪 </h3>
+    <% else %>
+      <div class="container-messages" id="messages" data-chatroom-id="<%= @ligue.id %>">
+        <% @messages.each do |message| %>
+          <%= render 'shared/card_message', message: message %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= simple_form_for [@ligue, @message] do |f| %>
+      <%= f.input :content, as: :string, label: false, placeholder: "Balance ta meilleure punchline", input_html: { id: 'input_shadow', autocomplete: 'off' }%>
+    <% end %>
+    <%= render 'shared/navbar' %>
+  </div>
 </div>
 
-<%= simple_form_for [@ligue, @message] do |f| %>
-  <%= f.input :content, as: :string, label: false, placeholder: "Balance ta meilleure punchline", input_html: { id: 'input_shadow'}%>
-<% end %>
-
-
-<%# <textarea class="form-control text required" id="input_shadow" placeholder="Balance ta meilleure punchline" name="message[content]"></textarea> %>

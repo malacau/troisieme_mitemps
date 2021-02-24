@@ -2,11 +2,12 @@
     color: white;
     background-color: $green;
     height: 40vh;
-    padding: 20px;
+    padding: 30px;
 
     & h1 {
         font-size: 42px;
         font-weight: 700;
+        margin-bottom: 10px;
     }
 }
 
@@ -16,9 +17,36 @@
     margin-left: 2%;
 }
 
-.top-view-content {
+.top-view-content-flex {
     height: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.top-view-content {
+    height: 24%;
+    display: flex;
+    align-items: center;
+}
+
+.top-view-content-trophee i {
+    font-size: 50px;
+    color: #FFDE00;
+    opacity: 0.8;
+    margin-right: 10px;
+}
+
+.top-view-content-position h3 {
+    font-size: 20px;
+    font-weight: bold;
+
+    & span {
+        font-weight: lighter;
+    }
+}
+
+.top-view-content-main {
+    display: flex;
+
 }
