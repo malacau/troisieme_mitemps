@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
     if @participation.save
       redirect_to ligue_path(@participation.ligue)
     else
-      render :show
+      render 'ligues/show'
     end
   end
 end

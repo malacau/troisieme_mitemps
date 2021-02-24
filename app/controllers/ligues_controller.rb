@@ -16,6 +16,12 @@ class LiguesController < ApplicationController
   def show
     @ligue = Ligue.find(params[:id])
     @participation = Participation.new
+    allusers = User.all
+    @users = allusers.reject do |user|
+      user.participations.any? do |participation|
+        participation.ligue == @ligue
+      end
+    end
   end
 
   def index
