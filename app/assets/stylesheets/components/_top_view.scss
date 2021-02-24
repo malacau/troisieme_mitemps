@@ -1,0 +1,24 @@
+.top-view {
+    color: white;
+    background-color: $green;
+    height: 40vh;
+    padding: 20px;
+
+    & h1 {
+        font-size: 42px;
+        font-weight: 700;
+    }
+}
+
+.top-view-title {
+    height: 40%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.top-view-content {
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
