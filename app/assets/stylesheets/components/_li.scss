@@ -1,0 +1,25 @@
+ul.thunderbolt > li:nth-child(1) {
+  list-style: "🥇 ";
+  list-style-position: inside;
+}
+ul.thunderbolt > li:nth-child(2 ) {
+  margin-top: 10px;
+  list-style: "🥈 ";
+  list-style-position: inside;
+}
+ul.thunderbolt > li:nth-child(3) {
+  margin-top: 10px;
+  list-style: "🥉 ";
+  list-style-position: inside;
+  }
+
+ul.thunderbolt > li:nth-child(4) {
+  margin-top: 10px;
+  list-style: "😭 ";
+  list-style-position: inside;
+  }
+
+ul {
+  padding: 0px;
+}
+
