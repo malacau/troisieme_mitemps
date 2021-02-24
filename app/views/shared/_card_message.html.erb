@@ -3,9 +3,14 @@
     <div class="card-message-photo">
       <%= cl_image_tag message.user.photo.key%>
     </div>
+    
     <div class="card-message-name-content">
-      <h3> <%= message.user.nickname %></h3>
-      <span class="card-message-name-content-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
+      <div class="card-message-date">
+        <div class="card-name">
+          <h3> <%= message.user.nickname %></h3>
+        </div>
+        <span class="card-message-name-content-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
+      </div>
       <p><%= message.content %> </p>
     </div>
   </div>
