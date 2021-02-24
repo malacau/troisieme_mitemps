@@ -1,11 +1,12 @@
 <div class="container-card-message">
-  <div class="card-message">
+  <div class="card-message " id="message-<%= message.id %>">
     <div class="card-message-photo">
-      <%= cl_image_tag current_user.photo.key%>
+      <%= cl_image_tag message.user.photo.key%>
     </div>
     <div class="card-message-name-content">
-      <h3> <%= current_user.nickname %></h3>
-      <p>Le lorem ipsum est, en imprimerie, une suite de </p>
+      <h3> <%= message.user.nickname %></h3>
+      <span class="card-message-name-content-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
+      <p><%= message.content %> </p>
     </div>
   </div>
 </div>
