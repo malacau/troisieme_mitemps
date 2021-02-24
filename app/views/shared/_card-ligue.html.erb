@@ -1,16 +1,17 @@
+<%= link_to ligue_path(ligue) do  %>
 <div class="container-card-ligue">
   <div class="card-ligue">
     <div class="card-ligue-content">
         <div class="card-ligue-content-description">
-            <h3> <%= current_user.ligues.last.name %></h3>
-            <p><%= current_user.ligues.last.description %></p>
+            <h3> <%= ligue.name %></h3>
+            <p><%= ligue.description %></p>
             <p>🏆 Mon classement : <span>1er • 6 joueurs</span></p>
         </div>
         <div class="card-ligue-content-photo">
-            <%= cl_image_tag current_user.ligues.last.photo.key%>
+            <%= cl_image_tag ligue.photo.key%>
         </div>
     </div>
   </div>
 </div>
-
-<!-- render 'shared/card_ligue' -->
+<% end %>
+<!-- render 'shared/card-ligue' -->
