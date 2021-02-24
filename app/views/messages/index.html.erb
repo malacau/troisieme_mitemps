@@ -1,6 +1,9 @@
-<h1> Discussion <%= @ligue.name %></h1>
 
-
+<% if @messages.empty?%>
+<h3> Aucune discussion en cours. Soyez le premier à envoyer un message 💪 </h3>
+<% else %>
+<h2> Discussion <%= @ligue.name %></h2>
+<% end %>
 
 <div class="container-messages" id="messages" data-chatroom-id="<%= @ligue.id %>">
   <% @messages.each do |message| %>
