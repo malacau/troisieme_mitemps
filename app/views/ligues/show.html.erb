@@ -1,19 +1,39 @@
-<%= @ligue.name %> </strong> </div>
-<p><strong> <%= @ligue.description %> </strong> </p>
-
-<p>Photo: <strong>   <%= cl_image_tag @ligue.photo.key, height: 125, width: 150%> </strong> </p>
-
-<% if @ligue.user == current_user && @ligue.participations.count < 4 %>
-<%= simple_form_for [@ligue, @participation] do |f| %>
-  <%= f.association :user, label_method: :nickname%>
-  <%= f.button :submit, value: "Ajouter"%>
-<% end %>
-<% end %>
-<ul class="thunderbolt">
-<% @ligue.participations.each_with_index do |participation, index| %>
-<li> <%= render 'shared/card-ranking', participation: participation%></li>
-<% end %>
-</ul>
-<%= link_to "Discussion", ligue_messages_path(@ligue) %>
+<div class="main-container">
+<div class="top-view">
+  <div class="top-view-title">
+    <h1><%= @ligue.name %></h1>
+  </div>
+  <div class="top-view-content">
+    <div class="top-view-content-main">
+      <div class="top-view-content-trophee">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="top-view-content-position">
+        <h3>Ma position</h3>
+        <h3>1er <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
+      </div>
+    </div>
+  </div>
+  <div class="players-information">
+    <p> <%= @ligue.users.count %> joueurs s'affrontent dans cette ligue</p>
+  </div>
+</div>
+  
+  <div class="languette-container">
+    <%= render 'shared/navbar-ligue' %>
+    <% if @ligue.user == current_user && @ligue.participations.count < 4 %>
+    <%= simple_form_for [@ligue, @participation] do |f| %>
+      <%= f.association :user, label_method: :nickname%>
+      <%= f.button :submit, value: "Ajouter"%>
+    <% end %>
+    <% end %>
+    <ul class="thunderbolt">
+    <% @ligue.participations.each_with_index do |participation, index| %>
+    <li> <%= render 'shared/card-ranking', participation: participation%></li>
+    <% end %>
+    </ul>
+  </div>
+  <%= render 'shared/navbar' %>
+</div>
 
 
