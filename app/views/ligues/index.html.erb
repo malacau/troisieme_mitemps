@@ -1,25 +1,9 @@
-<h1>Liste ligue</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>Description</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @ligues.each do |ligue| %>
-      <tr>
-        <td><%= ligue.name %></td>
-        <td><%= ligue.description %></td>
-        <td><%= link_to "Show", ligue %></td>
-      </tr>
+    <% if ligue.user == current_user || ligue.participations.each {|participation| participation.user_id == current_user.id} %>
+      <%= render 'shared/card-ligue', ligue: ligue %>
     <% end %>
-  </tbody>
-</table>
-
+<% end %>
 <br>
 
 <%= link_to "Nouvelle ligue", new_ligue_path %>
