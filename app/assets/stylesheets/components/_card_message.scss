@@ -1,9 +1,11 @@
 .container-card-message {
   padding: 0px 20px;
+  margin: 10px 0px;
 }
 
 .card-message {
-  display: flex
+  display: flex;
+  color: $jet;
 }
 
 .card-message-photo {
@@ -18,15 +20,21 @@
 }
 .card-message-name-content {
   align-items: center;
+  line-height: 1;
   & h3 {
     font-size: 12px;
     font-weight: 800;
     margin-bottom: 0px;
   }
-
   & p {
     font-size: 12px;
     margin-bottom: 0px;
-    line-height: 1;
+
   }
+}
+
+.card-message-name-content-date {
+  font-size: 10px;
+  font-style: italic;
+  color: #6c757d;
 }
