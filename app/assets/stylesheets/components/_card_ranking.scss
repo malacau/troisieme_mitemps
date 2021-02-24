@@ -1,6 +1,5 @@
 .container-card-ranking {
   padding: 0px 20px;
-  border-bottom: 2px solid #cfcfd873;
 }
 
 .card-ranking {
@@ -15,5 +14,9 @@
 }
 
 .trait {
+  width: 100%;
+  margin: auto;
   border-bottom: 2px solid #cfcfd873;
+  position: absolute;
+  left: 0;
 }
