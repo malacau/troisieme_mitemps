@@ -8,10 +8,22 @@
 require 'nokogiri'
 require 'open-uri'
 
+
+puts "Destroy players"
 Player.destroy_all
+puts "Destroy teams"
 Team.destroy_all
+puts "Destroy participations"
 Participation.destroy_all
+puts "Destroy ligues"
 Ligue.destroy_all
+puts "Destroy selections"
+Selection.destroy_all
+puts "Destroy line_ups"
+LineUp.destroy_all
+puts "Destroy rounds"
+Round.destroy_all
+puts "Destroy users"
 User.destroy_all
 
 
@@ -169,58 +181,61 @@ players = Player.create([
 
 puts "Fin de la création des Seeds players"
 
+
 # puts "Début création des Seeds Users"
 # user = User.new(
 #     nickname: "Quentin",
 #     email: "quentin@example.fr",
 #     password: "azerty",
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRDXMRNJ-553c0cb660fa-512.jpeg"
 #   )
-# file = URI.open('app/assets/images/Benoit.png')
-# user.photo.attach(io: file, filename: 'Benoit.png', content_type: 'image/png')
-# user.save!
-
-# user = User.create(
+# user_photo = URI.open('https://ca.slack-edge.com/T02NE0241-U01HRDXMRNJ-553c0cb660fa-512.jpeg')
+# user2 = User.create(
 #     nickname: "Gabriel",
 #     email: "gabriel@example.fr",
 #     password: "azerty",
-#     photo: "Gabriel.jpeg"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRJNF938-af9037e183ed-512.jpeg"
 #   )
-# user = User.create(
+# user3 = User.create(
 #     nickname: "Benjamin",
 #     email: "benjamin@example.fr",
 #     password: "azerty",
-#     photo: "Benjamin.jpeg"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01J0KFJJH1-53dbc03e5446-512.jpeg"
 #   )
-# user = User.create(
+# user4 = User.create(
 #     nickname: "Benoit",
 #     email: "benoit@example.fr",
 #     password: "azerty",
-#     photo: "Benoit.png"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01JB57C8GH-d75cfc352f3d-512.jpeg"
 #   )
-# user = User.create(
+# user5 = User.create(
 #     nickname: "Maxime",
 #     email: "maxime@example.fr",
 #     password: "azerty",
-#     photo: "Maxime.jpeg"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01HVGWM78V-ca173ef3cac3-512.jpeg"
 #   )
-# user = User.create(
+# user6 = User.create(
 #     nickname: "Antoine",
 #     email: "antoine@example.fr",
 #     password: "azerty",
-#     photo: "Antoine.jpeg"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01HYLYUAP5-cb0874fd17d0-512.jpeg"
 #   )
-# user = User.create(
+# user7 = User.create(
 #     nickname: "Bryan",
 #     email: "bryan@example.fr",
 #     password: "azerty",
-#     photo: "Bryan.jpeg"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRFZ8SP8-b9dbacfc72df-512.jpeg"
 #   )
-# user = User.create(
+# user8 = User.create(
 #     nickname: "Marco",
 #     email: "marco@example.fr",
 #     password: "azerty",
-#     photo: "Marco.jpg"
+#     photo: "https://ca.slack-edge.com/T02NE0241-U01HV81Q1HT-cb8748b0be8a-512.jpeg"
 #   )
 # puts "Fin de la création des Seeds Users"
+
+puts "Début création du round"
+  Round.create(game_date: Date.tomorrow)
+puts "Fin création du round"
 
 

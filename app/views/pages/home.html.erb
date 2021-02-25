@@ -3,5 +3,6 @@
   <div class="home-page-btn">
     <%= link_to "ligues", ligues_path, class: "button-large text-center" %>
     <%= link_to "sign-in", new_user_session_path, class: "button-large text-center" %>
+    <%= link_to destroy_user_session_path, method: :delete do %><div><i class="fas fa-user-cog button-large text-center"></i></div><% end %>
   </div>
 </div>
