@@ -1,0 +1,6 @@
+<h1>Lineup</h1>
+
+<% @line_up.selections.each do |selection| %>
+    <%= render 'shared/card-player', selection: selection %>
+    <%= selection.player.position %>
+<% end %>
