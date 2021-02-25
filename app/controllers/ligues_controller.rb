@@ -26,6 +26,7 @@ class LiguesController < ApplicationController
 
   def index
     @ligues = Ligue.all
+    @participations = Participation.all
   end
 
   private
