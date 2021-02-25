@@ -5,7 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
   validates :nickname, presence: true, uniqueness: true
-  validates :photo, presence: true
+
+   validates :photo, presence: true
+
+  # validate :photo_is_attached?
+
+
   has_many :messages
   has_many :participations
   has_many :line_ups
@@ -26,4 +31,10 @@ class User < ApplicationRecord
   #     15.times 
   #   end
   # end
+  private
+
+  # def photo_is_attached?
+  #   self.photo.attached?
+  # end
+
 end
