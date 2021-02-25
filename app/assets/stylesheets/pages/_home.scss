@@ -11,3 +11,13 @@ a:hover {
     color:unset;
     text-decoration: none;
 }
+.home-page-container {
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-btn a {
+  margin: 20px 0px;
+}
