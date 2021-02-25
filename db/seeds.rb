@@ -108,7 +108,8 @@ end
       team: Team.find_by_name(player[2])
     )
   end
-  players = Player.create([
+end
+players = Player.create([
     {
       first_name: 'default',
       last_name: 'default',
@@ -165,63 +166,61 @@ end
     },
 
   ])
-end
 
 puts "Fin de la création des Seeds players"
 
 # puts "Début création des Seeds Users"
-# users = User.create([
-#   {
+# user = User.new(
 #     nickname: "Quentin",
 #     email: "quentin@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#   )
+# file = URI.open('app/assets/images/Benoit.png')
+# user.photo.attach(io: file, filename: 'Benoit.png', content_type: 'image/png')
+# user.save!
+
+# user = User.create(
 #     nickname: "Gabriel",
 #     email: "gabriel@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#     photo: "Gabriel.jpeg"
+#   )
+# user = User.create(
 #     nickname: "Benjamin",
 #     email: "benjamin@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#     photo: "Benjamin.jpeg"
+#   )
+# user = User.create(
 #     nickname: "Benoit",
 #     email: "benoit@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#     photo: "Benoit.png"
+#   )
+# user = User.create(
 #     nickname: "Maxime",
 #     email: "maxime@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#     photo: "Maxime.jpeg"
+#   )
+# user = User.create(
 #     nickname: "Antoine",
 #     email: "antoine@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#     photo: "Antoine.jpeg"
+#   )
+# user = User.create(
 #     nickname: "Bryan",
 #     email: "bryan@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   },
-#   {
+#     photo: "Bryan.jpeg"
+#   )
+# user = User.create(
 #     nickname: "Marco",
 #     email: "marco@example.fr",
 #     password: "azerty",
-#     password_confirmation: "azerty"
-#   }
-
-# ])
-
+#     photo: "Marco.jpg"
+#   )
 # puts "Fin de la création des Seeds Users"
 
 
