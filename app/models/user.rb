@@ -16,6 +16,21 @@ class User < ApplicationRecord
   has_many :line_ups
   has_many :ligues
 
+  def current_line_up
+    line_ups.last 
+  end
+
+  # def create_current_line_up
+  #   current_round = Round.where("game_date > ?", Date.today).order(:game_date, :desc).first
+  #   if current_line_up
+  #     line_up = LineUp.clone
+  #     line_up.round = current_round
+  #     line_up.save
+  #   else
+  #     self.line_ups.create(round: current_round)
+  #     15.times 
+  #   end
+  # end
   private
 
   # def photo_is_attached?
