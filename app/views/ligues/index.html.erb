@@ -8,14 +8,19 @@
       <%= link_to "Rejoindre une ligue", "#", class:"button-outlined" %>
     </div>
   </div>
-  
+
   <div class="languette-container">
     <% @ligues.each do |ligue| %>
-      <% if ligue.user == current_user || ligue.participations.each {|participation| participation.user_id == current_user.id} %>
+      <% if ligue.participations.present? %>
+        <% player_ligue = ligue.participations.find {|participation| participation.user == current_user}  %>
+      <% end %>
+      <% if ligue.user == current_user || player_ligue.present? %>
         <%= render 'shared/card-ligue', ligue: ligue %>
       <% end %>
     <% end %>
-
+    <% if current_user.participations.empty? %>
+      <p class="text-center">Vous n'avez pas encore de ligue</p>
+    <% end %>
   </div>
   <%= render 'shared/navbar' %>
 </div>
