@@ -17,8 +17,8 @@
 <div class="languette-container">
   <div class="px-4 m-auto">
     <%= simple_form_for @ligue do |f| %>
-          <%= f.input :name, label: "Nom de la ligue" , placeholder: "Les locomotives", input_html: { id: 'input_shadow', autocomplete: 'off' }, label_html: { class: "label-input" } %>
-          <%= f.input :description, as: :string,  placeholder: "La ligue officielle de la 3ème Mi-temps", input_html: { id: 'input_shadow', autocomplete: 'off' }, label_html: { class: "label-input" } %>
+          <%= f.input :name, label: "Nom de la ligue" , placeholder: "Les locomotives", input_html: { class: 'input_shadow', autocomplete: 'off' }, label_html: { class: "label-input" } %>
+          <%= f.input :description, as: :string,  placeholder: "La ligue officielle de la 3ème Mi-temps", input_html: { class: 'input_shadow', autocomplete: 'off' }, label_html: { class: "label-input" } %>
           <%# <%= f.input :password, label: "Oh shit here we go again", placeholder: "Azerty"  %>
           <%= f.input :photo, as: :file, label: "Photo de la ligue" %>
           <%= f.button :submit, "Créer ma ligue", class: "button-large"%>

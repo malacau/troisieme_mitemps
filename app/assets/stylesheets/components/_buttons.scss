@@ -9,6 +9,17 @@
     font-weight: 600;
 }
 
+.button-medium {
+    display: block;
+    margin: auto;
+    background-color: $green;
+    border-radius: 16px;
+    padding: 10px 35px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .button-white {
     display: block;
     width: 150px;
