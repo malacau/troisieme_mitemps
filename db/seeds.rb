@@ -108,64 +108,64 @@ end
       team: Team.find_by_name(player[2])
     )
   end
-  players = Player.create([
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'prop',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'hooker',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'locky',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'thirdrow',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'scrumhalf',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'flyhalf',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'centre',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'wing',
-    },
-    {
-      first_name: 'default',
-      last_name: 'default',
-      team: Team.find_by_name('Default'),
-      position: 'fullback',
-    },
-
-  ])
 end
+players = Player.create([
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'prop',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'hooker',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'locky',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'thirdrow',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'scrumhalf',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'flyhalf',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'centre',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'wing',
+  },
+  {
+    first_name: 'default',
+    last_name: 'default',
+    team: Team.find_by_name('Default'),
+    position: 'fullback',
+  },
+
+])
 
 puts "Fin de la création des Seeds players"
 
