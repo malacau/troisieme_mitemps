@@ -19,9 +19,10 @@
     </div>
   </div>
   <div class="languette-container">
+    <div class="px-4">
     <%= render 'shared/navbar-ligue' %>
     <% if @messages.empty?%>
-    <h3> Aucune discussion en cours. Soyez le premier à envoyer un message 💪 </h3>
+    <p> Aucune discussion en cours. Soyez le premier à envoyer un message 💪 </p>
     <% else %>
       <div class="container-messages" id="messages" data-chatroom-id="<%= @ligue.id %>">
         <% @messages.each do |message| %>
@@ -30,9 +31,10 @@
       </div>
     <% end %>
     <%= simple_form_for [@ligue, @message] do |f| %>
-      <%= f.input :content, as: :string, label: false, placeholder: "Balance ta meilleure punchline", input_html: { id: 'input_shadow', autocomplete: 'off' }%>
+      <%= f.input :content, as: :string, label: false, placeholder: "Balance ta meilleure punchline", input_html: { class: 'input_shadow', id: 'input_chat', autocomplete: 'off', class: 'input-chat' }%>
     <% end %>
     <%= render 'shared/navbar' %>
+    </div>
   </div>
 </div>
 

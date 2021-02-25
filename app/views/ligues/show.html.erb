@@ -24,7 +24,7 @@
     <% if @ligue.user == current_user && @ligue.participations.count < 4 %>
     <%= simple_form_for [@ligue, @participation] do |f| %>
       <%= f.association :user, collection: @users, label_method: :nickname%>
-      <%= f.button :submit, value: "Ajouter"%>
+      <%= f.button :submit, value: "Ajouter", class: "button-medium"%>
     <% end %>
     <% end %>
     <ul class="thunderbolt">
