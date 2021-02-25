@@ -1,17 +1,30 @@
-<div class="container">
-  <div class="row card-large bg-light shadow p-5 mb-5 margin-top-80px bg-white d-flex justify-content-center ">
-    <h1 class="header-shadow">Ajouter ma ligue</h1>
-    <div class="mx-auto">
-      <br>
-      <%= simple_form_for @ligue do |f| %>
-        <%= f.input :name, placeholder: "Les Brocasses" %>
-        <%= f.input :description, placeholder: "Compliqué cette appli" %>
-        <%= f.input :password, label: "Oh shit here we go again", placeholder: "Azerty"  %>
-        <%= f.input :photo, as: :file, label: "La photo " %>
-        <br>
-        <hr>
-        <%= f.button :submit, "Créer ma ligue", class: "btn btn-success"%>
-      <% end %>
+<div class="main-container">
+<div class="top-view">
+  <div class="top-view-title">
+    <h1>Créer une ligue</h1>
+  </div>
+  <div class="top-view-content">
+    <div class="top-view-content-main">
+      <div class="top-view-content-trophee">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="top-view-content-position">
+        <h3>Ici démarre votre nouvelle aventure !</h3>
+      </div>
     </div>
   </div>
+</div>
+<div class="languette-container">
+  <div class="px-4 m-auto">
+    <%= simple_form_for @ligue do |f| %>
+          <%= f.input :name, label: "Nom de la ligue" , placeholder: "Les locomotives", input_html: { id: 'input_shadow', autocomplete: 'off' }, label_html: { class: "label-input" } %>
+          <%= f.input :description, as: :string,  placeholder: "La ligue officielle de la 3ème Mi-temps", input_html: { id: 'input_shadow', autocomplete: 'off' }, label_html: { class: "label-input" } %>
+          <%# <%= f.input :password, label: "Oh shit here we go again", placeholder: "Azerty"  %>
+          <%= f.input :photo, as: :file, label: "Photo de la ligue" %>
+          <%= f.button :submit, "Créer ma ligue", class: "button-large"%>
+    <% end %>
+    <%= render 'shared/navbar' %>   
+  </div>
+</div>
+
 </div>
