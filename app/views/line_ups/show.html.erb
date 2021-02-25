@@ -4,3 +4,16 @@
     <%= render 'shared/card-player', selection: selection %>
     <%= selection.player.position %>
 <% end %>
+
+
+<%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  <%= link_to "Players modal", players_modal_path(@line_up, players: @players), remote: true %>
+<%# </button> %> %>
+
+
+<div >
+    <%= render 'line_ups/players_modale', position: :prop, selection: @line_up.selections.first %>
+    <%= render 'line_ups/players_modale', position: :hooker, selection: @line_up.selections.second %>
+    <%= render 'line_ups/players_modale', position: :wing, selection: @line_up.selections.third %>
+</div>
+
