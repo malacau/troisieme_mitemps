@@ -29,10 +29,12 @@ class User < ApplicationRecord
       line_up.round = current_round
       line_up.save
     else
+      n = 1
       line_up = self.line_ups.create(round: current_round)
       [0,1,0,2,2,3,3,3,4,5,7,6,6,7,8].each do |i|
-        Selection.create(line_up: line_up, player: Team.find_by_name('Default').players[i])
-      end 
+        Selection.create(line_up: line_up, player: Team.find_by_name('Default').players[i], terrain_position: n)
+        n += 1
+      end
     end
   end
 end
