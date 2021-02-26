@@ -1,7 +1,7 @@
 class SelectionsController < ApplicationController
   def update
-    @selection = Selection.find(params[:line_up_id])
-    @player = Player.find(params[:id])
+    @selection = Selection.find(params[:id])
+    @player = Player.find(params[:format])
     @selection.player = @player
     # @line_up.selections.find {|selection| selection.player == @selection.player}
     if @selection.save
