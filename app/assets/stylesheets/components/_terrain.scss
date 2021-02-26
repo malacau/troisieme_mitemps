@@ -6,6 +6,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: absolute;
 }
 
 /* Player line_up#show */
@@ -21,17 +22,83 @@
     }
     & p {
         font-size: 10px;
-        font-weight: 600;
+        font-weight: 700;
         color: white;
     }
 }
 
 .player-position-1 {
-    display: relative;
+    position: relative;
+    top: 35px;
+    left: 18px;
 }
+.player-position-2 {
+    position: relative;
+    top: -75px;
+    left: 137px
 
-.player-position-prop {
-    top:0;
-    left: 0;
 }
-
+.player-position-3 {
+    position: relative;
+    top: -186px;
+    left: 254px;
+}
+.player-position-4 {
+    position: relative;
+    top: -226px;;
+    left: 74px;
+}
+.player-position-5 {
+    position: relative;
+    top: -336px;
+    left: 197px;
+}
+.player-position-6 {
+    position: relative;
+    left:18px;
+    top: -361px;
+}
+.player-position-7 {
+    position: relative;
+    left:254px;
+    top: -472px;
+}
+.player-position-8 {
+    position: relative;
+    left: 137px;
+    top: -583px;
+}
+.player-position-9 {
+    position: relative;
+    left: 74px;
+    top: -611px;
+}
+.player-position-10 {
+    position: relative;
+    left: 197px;
+    top: -724px;
+}
+.player-position-11 {
+    position: relative;
+    top: -743px;
+}
+.player-position-12 {
+    position: relative;
+    top: -854px;
+    left: 90px;
+}
+.player-position-13 {
+    position: relative;
+    top: -964px;
+    left: 182px;
+}
+.player-position-14 {
+    position: relative;
+    top: -1076px;
+    left: 270px;
+}
+.player-position-15 {
+    position: relative;
+    top: -1101px;
+    left: 136px;
+}
