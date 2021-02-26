@@ -36,7 +36,7 @@
           </div>
       <div class="modal-body">
         <div class="card-player-grid">
-          <% Player.where(position: selection.player.position).first(40).each do |player| %>
+          <% Player.where(position: selection.player.position).reject{|player| player.selections.first.line_up == @line_up if player.selections.first}.first(40).each do |player| %>
             <%= link_to selection_path(selection, player), method: :patch do  %>
               <div class="card-player">
                 <div class="card-player-content">
@@ -65,6 +65,7 @@
   </div>
   <%= render 'shared/navbar' %>
 </div>
+
 
 
 <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
