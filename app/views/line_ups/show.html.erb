@@ -20,10 +20,10 @@
 <div class="languette-container">
   <h3>Mon équipe</h3>
   <div class="terrain">
-    <% @line_up.selections.each do |selection| %>
-      <div class="player-lineup player-position-<%=selection.player.position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
+    <% @line_up.selections.order(:terrain_position).each do |selection| %>
+      <div class="player-lineup player-position-<%=selection.terrain_position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
             <%= image_tag selection.player.team.icon %>
-            <p><span> <%= selection.player.last_name %></span></p>
+            <p><span><%= selection.player.last_name %></span></p>
       </div>
     <div class="modal fade" id="exampleModalLong-<%= selection.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
