@@ -1,0 +1,37 @@
+.terrain {
+    height: 650px;
+    width: 100%;
+    margin-top: 20px;
+    background-image: url('/assets/rugby-ground.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Player line_up#show */
+
+.player-lineup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    & img {
+        height: 80px;
+    }
+    & p {
+        font-size: 10px;
+        font-weight: 600;
+        color: white;
+    }
+}
+
+.player-position-1 {
+    display: relative;
+}
+
+.player-position-prop {
+    top:0;
+    left: 0;
+}
+

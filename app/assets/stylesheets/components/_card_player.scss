@@ -1,3 +1,5 @@
+/* Card Player modale */
+
 .card-player {
     width: 150px;
     height: 150px;
@@ -39,11 +41,9 @@
     color: yellow;
 }
 
-
-
-
 .card-player-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
+
