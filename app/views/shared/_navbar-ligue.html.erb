@@ -1,9 +1,9 @@
 <div class="container-navbar-ligue">
   <ul class="ligue-navbar">
-    <li class="ligue-navbar-active">
+    <li class="<%='ligue-navbar-active' if params[:controller] == 'ligues'%>">
         <%= link_to ligue_path(@ligue) do %>Classement<% end %>
     </li>
-    <li>
+    <li class="<%='ligue-navbar-active' if params[:controller] == 'messages'%>">
         <%= link_to ligue_messages_path(@ligue) do %>Discussion<% end %>
     </li>
     <li >
@@ -13,3 +13,4 @@
 </div>
 
 <%# render 'shared/navbar-ligue' %>
+

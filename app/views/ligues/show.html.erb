@@ -27,7 +27,7 @@
       <%= f.button :submit, value: "Ajouter", class: "button-medium"%>
     <% end %>
     <% end %>
-    <ul class="thunderbolt">
+    <ul class="thunderbolt mt-3">
     <% @ligue.participations.each_with_index do |participation, index| %>
     <li> <%= render 'shared/card-ranking', participation: participation%></li>
     <% end %>
