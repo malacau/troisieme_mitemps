@@ -24,7 +24,7 @@
       <div class="modal-body">
         <div class="card-player-grid">
           <% Player.where(position: selection.player.position).first(40).each do |player| %>
-            <%= link_to line_up_selection_path(selection, player), method: :patch do  %>
+            <%= link_to selection_path(selection, player), method: :patch do  %>
               <div class="card-player">
                 <div class="card-player-content">
                   <%= image_tag player.team.icon %>

@@ -5,12 +5,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
     resources :participations, only: [:create, :new]
   end
-  resources :line_ups, only: [:index, :show, :create, :update] do
-  resources :selections, only: [:update]
+  resources :line_ups, only: [:index, :show, :create, :update]
 
-  end
   resources :teams, only: :index
   resources :players, only: :index
+  resources :selections, only: [:update]
 
 
 
