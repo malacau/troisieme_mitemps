@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     resources :participations, only: [:create, :new]
   end
   resources :line_ups, only: [:index, :show, :create, :update] do
-  
+  resources :selections, only: [:update]
+
   end
   resources :teams, only: :index
   resources :players, only: :index
+
 
 
 end

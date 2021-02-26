@@ -9,19 +9,15 @@ require 'nokogiri'
 require 'open-uri'
 
 
-puts "Destroy players"
-Player.destroy_all
-puts "Destroy teams"
-Team.destroy_all
-puts "Destroy participations"
-Participation.destroy_all
-puts "Destroy ligues"
-Ligue.destroy_all
-puts "Destroy selections"
-Selection.destroy_all
 puts "Destroy line_ups"
 LineUp.destroy_all
 puts "Destroy rounds"
+Player.destroy_all
+puts "Destroy teams"
+Team.destroy_all
+puts "Destroy ligues"
+Ligue.destroy_all
+puts "Destroy selections"
 Round.destroy_all
 puts "Destroy users"
 User.destroy_all
