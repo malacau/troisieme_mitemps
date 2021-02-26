@@ -18,7 +18,7 @@
   </div>
 </div>
 <div class="languette-container">
-  <h3>Mon équipe</h3>
+  <h3 class="languette-container-title">Mon équipe</h3>
   <div class="terrain">
     <% @line_up.selections.order(:terrain_position).each do |selection| %>
       <div class="player-lineup player-position-<%=selection.terrain_position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
