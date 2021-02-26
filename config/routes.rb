@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :teams, only: :index
   resources :players, only: :index
+  post "/players/search", to: "players#search", as: "search"
 
 
 end

@@ -19,8 +19,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(:request, url: players_path, method: :get, remote: true)   do |f| %>
-        <div id="searchplayerform">
+        <%= simple_form_for(:request, url: search_path, method: :post, remote: true) do |f| %>
+        <div id="searchplayerform" data-selection-id="<%= selection.id %>">
           <div class="row justify-content-center align-items-center">
             <div class="col-12 d-flex justify-content-center">
               <div class="row w-50">
@@ -42,9 +42,7 @@
         </div>
       <% end %>
       <div class="card-player-grid" id="players-<%= selection.id %>">
-        <% Player.where(position: selection.player.position).first(10).each do |player| %>
-          <%= render "selection_player_modale", player: player %>
-        <% end %>
+        <%= render 'selection_players_modale', players: Player.where(position: selection.player.position).first(10) %>
       </div>
 
 
@@ -57,6 +55,6 @@
   </div>
 </div>
 
-#en JS retrouver le formulaire (query selector) , poser un écouteur sur le formulaire , 
+<%# #en JS retrouver le formulaire (query selector) , poser un écouteur sur le formulaire , 
 #dès qu'on clique submit, retrouver les valeurs dans les inputs
-#une fois input retrouvé, faire fetch sur player index, utislier le résultat dans la partiale de players id
+#une fois input retrouvé, faire fetch sur player index, utislier le résultat dans la partiale de players id %>
