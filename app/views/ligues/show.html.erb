@@ -10,7 +10,14 @@
       </div>
       <div class="top-view-content-position">
         <h3>Ma position</h3>
-        <h3>1er <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
+        <h3>
+        <% if(@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) == 0 %>
+          <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> er
+        <% else %>
+          <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> ème 
+        <% end %>
+        
+        <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
       </div>
     </div>
   </div>
@@ -28,7 +35,7 @@
     <% end %>
     <% end %>
     <ul class="thunderbolt mt-3">
-    <% @ligue.participations.each_with_index do |participation, index| %>
+    <% @ligue.participations.order(score: :desc).each do |participation| %>
     <li> <%= render 'shared/card-ranking', participation: participation%></li>
     <% end %>
     </ul>
