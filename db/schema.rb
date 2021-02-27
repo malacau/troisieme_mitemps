@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_115201) do
+ActiveRecord::Schema.define(version: 2021_02_27_162143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_115201) do
     t.bigint "round_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "budget", default: 200
     t.index ["round_id"], name: "index_line_ups_on_round_id"
     t.index ["user_id"], name: "index_line_ups_on_user_id"
   end
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_115201) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "average_rating"
+    t.integer "cote", default: 5
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
