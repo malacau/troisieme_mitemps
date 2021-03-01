@@ -5,7 +5,9 @@ class PlayersController < ApplicationController
   end
 
   def search
-    @players = Player.all
+    @selection = Selection.find(params[:request][:selection_id])
+    @players = Player.selectable_for(@selection)
+    # @players = Player.all
     if !(params[:request][:name].blank?)
       sql_query = "players.last_name @@ :name"
       @players = @players.where(sql_query, name: "%#{params[:request][:name]}%")
@@ -13,10 +15,10 @@ class PlayersController < ApplicationController
     if !(params[:request][:team].blank?)
       @players = @players.joins(:team).where(teams: {name: params[:request][:team]})
     end
-    coco = render_to_string(partial: "line_ups/selection_players_modale.html.erb", locals: { players: @players }) 
+    players_html = render_to_string(partial: "line_ups/selection_players_modale.html.erb", locals: { players: @players, selection: @selection }) 
     respond_to do |format|
       format.html
-      format.json { render json: { players: coco }}
+      format.json { render json: { players: players_html }}
     end
   end
 end
