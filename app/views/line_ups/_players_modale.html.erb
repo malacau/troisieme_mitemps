@@ -48,7 +48,7 @@
                 </div>
                 </div>
               </div>
-            <% elsif @line_up_teams.select {|team| team == player.team.name}.count > 3 %>
+            <% elsif @line_up_teams.select {|team| team == player.team.name}.count >= 3 %>
               <div class="card-player disable">
                 <div class="card-player-content">
                   <%= image_tag player.team.icon %>
