@@ -229,9 +229,89 @@ puts "Fin de la création des Seeds players"
 #     photo: "https://ca.slack-edge.com/T02NE0241-U01HV81Q1HT-cb8748b0be8a-512.jpeg"
 #   )
 # puts "Fin de la création des Seeds Users"
+puts "Début mise à jour de la côte des joueurs"
+  default = Team.find_by(name: 'Default')
+    default.players.each do |player| player.cote = 0
+    player.save
+  end
+
+  agen = Team.find_by(name: 'Agen')
+    agen.players.each do |player| player.cote = 5
+    player.save
+  end
+
+  bayonne = Team.find_by(name: 'Bayonne')
+    bayonne.players.each do |player| player.cote = 6
+    player.save
+  end
+
+  ubb = Team.find_by(name: 'Union Bordeaux Begles')
+  ubb.players.each do |player| player.cote = 14
+    player.save
+  end
+
+  brive = Team.find_by(name: 'Brive')
+    brive.players.each do |player| player.cote = 10
+    player.save
+  end
+
+  castres = Team.find_by(name: 'Castres')
+    castres.players.each do |player| player.cote = 9
+    player.save
+  end
+
+  clermont = Team.find_by(name: 'Clermont')
+    clermont.players.each do |player| player.cote = 15
+    player.save
+  end
+
+  larochelle = Team.find_by(name: 'La Rochelle')
+    larochelle.players.each do |player| player.cote = 17
+    player.save
+  end
+
+  lou = Team.find_by(name: 'LOU')
+    lou.players.each do |player| player.cote = 12
+    player.save
+  end
+
+  montpellier = Team.find_by(name: 'Montpellier')
+    montpellier.players.each do |player| player.cote = 8
+    player.save
+  end
+
+  pau = Team.find_by(name: 'Pau')
+    pau.players.each do |player| player.cote = 7
+    player.save
+  end
+
+  racing = Team.find_by(name: 'Racing Metro 92')
+    racing.players.each do |player| player.cote = 16
+    player.save
+  end
+
+  stadefr = Team.find_by(name: 'Stade Français')
+    stadefr.players.each do |player| player.cote = 11
+    player.save
+  end
+
+  toulouse = Team.find_by(name: 'Stade Toulousain')
+    toulouse.players.each do |player| player.cote = 18
+    player.save
+  end
+
+  toulon = Team.find_by(name: 'Toulon')
+    toulon.players.each do |player| player.cote = 13
+    player.save
+  end
+
+puts "Fin mise à jour de la côte des joueurs"
+
+
 
 puts "Début création du round"
   Round.create(game_date: Date.tomorrow)
 puts "Fin création du round"
+
 
 

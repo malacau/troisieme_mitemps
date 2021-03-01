@@ -1,26 +1,59 @@
-// Specific CSS for your home-page
-.main-container {
-    height: 100vh;
-    background-color: $green;
+h1 {
+  font-size: 40px;
+  text-align: center;
+  transition: opacity .4s;
 }
 
-body {
-    
-}
-
-a:hover {
-    color:unset;
-    text-decoration: none;
-}
-.home-page-container {
-  height:100vh;
+.layer {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform .4s;
+  transform:
+      perspective(800px)
+      scale(1)
+      translateX(0)
+      rotateY(0);
+  transform-style: preserve-3d;
+
 }
 
-.home-page-btn a {
-  margin: 20px 0px;
+
+nav {
+  align-items: center;
+  vertical-align: center;
+
+  ul {
+    font-size: larger;
+    line-height: 2;
+    padding-left: 66.66%;
+    text-transform: uppercase;
+    color: whitesmoke;
+
+    li {
+      cursor: pointer;
+      list-style: none;
+    }
+  }
+}
+
+.home {
+  $color :  #0CB06C;
+  background: $color;
+
+  body:hover & {
+    transform:
+      perspective(800px)
+      scale(.5)
+      translateX(-16.66%)
+      rotateY(25deg);
+  }
 }
 
 
