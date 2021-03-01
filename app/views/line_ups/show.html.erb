@@ -1,89 +1,33 @@
-<h1>Lineup</h1>
-
-<% @line_up.selections.each do |selection| %>
-<%= render "players_modale", selection: selection %>
-<% end %>
-
-####### 
-
 <div class="main-container">
-<div class="top-view">
-  <div class="top-view-title">
-    <h1>
+  <div class="top-view">
+    <div class="top-view-title">
+      <h1>
       Bienvenue, <%= @line_up.user.nickname %>
-    </h1>
-  </div>
-  <div class="top-view-content">
-    <div class="top-view-content-main">
-      <div class="top-view-content-trophee">
-        <i class="fas fa-trophy"></i>
-      </div>
-      <div class="top-view-content-position">
-        <h3>Votre score</h3>
-        <h3><span><%= @line_up.score %> points</span></h3>
-      </div>
+      </h1>
     </div>
-  </div>
-</div>
-<div class="languette-container">
-  <h3 class="languette-container-title">Mon équipe <%= @line_up.budget %> Bieres</h3>
-  <div class="terrain">
-    <% @line_up.selections.order(:terrain_position).each do |selection| %>
-      <div class="player-lineup player-position-<%=selection.terrain_position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
-            <%= image_tag selection.player.team.icon %>
-            <p><span><%= selection.player.last_name %></span></p>
-      </div>
-    <div class="modal fade" id="exampleModalLong-<%= selection.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Sélectionnez un joueur</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-      <div class="modal-body">
-        <div class="card-player-grid">
-          <% Player.where(position: selection.player.position).order(:id).reject{|player| player.selections.first.line_up == @line_up if player.selections.first}.each do |player| %>
-            <% if player.cote > selection.line_up.budget %>
-            <div class="card-player disable">
-                <div class="card-player-content">
-                  <%= image_tag player.team.icon %>
-                  <div class="card-player-title">
-                    <p><%= player.first_name[1] %>. <%= player.last_name %></p>
-                  </div>
-                  <%# <div class="player-rating">
-                   8.4 <i class="fas fa-star"></i>
-                  </div> %>
-                </div>
-              </div>
-              <% else %>
-            <%= link_to selection_path(selection, player), method: :patch do  %>
-              <div class="card-player">
-                <div class="card-player-content">
-                  <%= image_tag player.team.icon %>
-                  <div class="card-player-title">
-                    <p><%= player.first_name[1] %>. <%= player.last_name %></p>
-                  </div>
-                  <%# <div class="player-rating">
-                   8.4 <i class="fas fa-star"></i>
-                  </div> %>
-                </div>
-              </div>
-              <% end %>
-            <% end %>
-          <% end %>
-            </div>
-          </div>
+    <div class="top-view-content">
+      <div class="top-view-content-main">
+        <div class="top-view-content-trophee">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="top-view-content-position">
+          <h3>Votre score</h3>
+          <h3><span><%= @line_up.score %> points</span></h3>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
-  <%= render 'shared/navbar' %>
+  <div class="languette-container">
+    <h3 class="languette-container-title">Mon équipe <%= @line_up.budget %> Bieres</h3>
+    <div class="terrain">
+      <% @line_up.selections.order(:terrain_position).each do |selection| %>
+      <%= render "players_modale", selection: selection %>
+      <% end %>
+    </div>
+    <%= render 'shared/navbar' %>
+  </div>
 </div>
 
-######
 
 <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
   <%= link_to "Players modal", players_modal_path(@line_up, players: @players), remote: true %>

@@ -1,55 +1,71 @@
-  <div class="card-player" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
-    <div class="card-player-content">
-        <%= image_tag selection.player.team.icon %>
-        <div class="card-player-title">
-            <p><%= selection.player.first_name %><span> <%= selection.player.last_name %></span></p>
-        </div>
-        <div class="player-rating">
-            8.4 <i class="fas fa-star"></i>
-        </div>
-    </div>
-  </div>
+<div class="player-lineup player-position-<%=selection.terrain_position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
+  <%= image_tag selection.player.team.icon %>
+  <p><span><%= selection.player.last_name %></span></p>
+</div>
 <div class="modal fade" id="exampleModalLong-<%= selection.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"><%= selection.player.position %> </h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Sélectionnez un joueur</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <%= simple_form_for(:request, url: search_path, method: :post, remote: true) do |f| %>
-        <div id="searchplayerform" data-selection-id="<%= selection.id %>">
-          <div class="row justify-content-center align-items-center">
-            <div class="col-12 d-flex justify-content-center">
-              <div class="row w-50">
-                <div class="col-9 px-2 my-auto">
-                  <%= f.input :last_name, placeholder: "Player's name", label: false %>
+          <div id="searchplayerform" data-selection-id="<%= selection.id %>">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="row w-50">
+                  <div class="col-9 px-2 my-auto">
+                    <%= f.input :last_name, placeholder: "Player's name", label: false %>
+                  </div>
+                  <div class="col-3 d-flex px-0">
+                    <%= f.button :submit, "Search", class: "home-btn" %>
+                  </div>
                 </div>
-                <div class="col-3 d-flex px-0">
-                  <%= f.button :submit, "Search", class: "home-btn" %>
                 </div>
               </div>
+              <br>
+              <div class="row justify-content-center align-items-center">
+                <div class="col-3">
+                  <%= f.input :team, placeholder: "How much for him, you cheapfuck", collection: Team.all.map(&:name) %>
+                </div>
             </div>
           </div>
-          <br>
-          <div class="row justify-content-center align-items-center">
-            <div class="col-3">
-              <%= f.input :team, placeholder: "How much for him, you cheapfuck", collection: Team.all.map(&:name) %>
-            </div>
-          </div>
+        <% end %>
+        <div class="card-player-grid" id="players-<%= selection.id %>">
+        <%# <%= render 'selection_players_modale', players: Player.where(position: selection.player.position).first(10) %>
+          <% Player.where(position: selection.player.position).order(:id).reject{|player| player.selections.first.line_up == @line_up if player.selections.first}.each do |player| %>
+            <% if player.cote > selection.line_up.budget %>
+              <div class="card-player disable">
+                <div class="card-player-content">
+                  <%= image_tag player.team.icon %>
+                <div class="card-player-title">
+                  <p><%= player.first_name[1] %>. <%= player.last_name %></p>
+                </div>
+                <%# <div class="player-rating">
+                8.4 <i class="fas fa-star"></i>
+                </div> %>
+                </div>
+              </div>
+            <% else %>
+              <%= link_to selection_path(selection, player), method: :patch do  %>
+                <div class="card-player">
+                  <div class="card-player-content">
+                      <%= image_tag player.team.icon %>
+                    <div class="card-player-title">
+                      <p><%= player.first_name[1] %>. <%= player.last_name %></p>
+                    </div>
+                    <div class="player-rating">
+                      8.4 <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
-      <div class="card-player-grid" id="players-<%= selection.id %>">
-        <%= render 'selection_players_modale', players: Player.where(position: selection.player.position).first(10) %>
-      </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
