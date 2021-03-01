@@ -5,4 +5,4 @@ button.addEventListener('submit', (event) => {
   console.log(event)
 }
 
-export { form };
+export { form },
