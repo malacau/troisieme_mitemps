@@ -14,9 +14,9 @@
         <% if(@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) == 0 %>
           <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> er
         <% else %>
-          <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> ème 
+          <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> ème
         <% end %>
-        
+
         <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
       </div>
     </div>
