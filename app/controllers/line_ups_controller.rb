@@ -1,6 +1,6 @@
 class LineUpsController < ApplicationController
     def index
-        @line_ups = LineUp.all
+        @line_ups = LineUp.includes(:player, :team)
     end
     def show
         @line_up = LineUp.find(params[:id])
