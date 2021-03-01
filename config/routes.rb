@@ -6,11 +6,8 @@ Rails.application.routes.draw do
     resources :participations, only: [:create, :new]
   end
   resources :line_ups, only: [:index, :show, :create, :update]
-
   resources :teams, only: :index
   resources :players, only: :index
+  post "/players/search", to: "players#search", as: "search"
   resources :selections, only: [:update]
-
-
-
 end

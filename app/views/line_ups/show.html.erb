@@ -1,3 +1,11 @@
+<h1>Lineup</h1>
+
+<% @line_up.selections.each do |selection| %>
+<%= render "players_modale", selection: selection %>
+<% end %>
+
+####### 
+
 <div class="main-container">
 <div class="top-view">
   <div class="top-view-title">
@@ -75,7 +83,7 @@
   <%= render 'shared/navbar' %>
 </div>
 
-
+######
 
 <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
   <%= link_to "Players modal", players_modal_path(@line_up, players: @players), remote: true %>
