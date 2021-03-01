@@ -22,7 +22,7 @@
     <div class="px-4">
     <%= render 'shared/navbar-ligue' %>
     <% if @messages.empty?%>
-    <p> Aucune discussion en cours. Soyez le premier à envoyer un message 💪 </p>
+    <p><strong>Aucune discussion en cours. Soyez le premier à envoyer un message 💪</strong></p>
     <% else %>
       <div class="container-messages" id="messages" data-chatroom-id="<%= @ligue.id %>">
         <% @messages.each do |message| %>

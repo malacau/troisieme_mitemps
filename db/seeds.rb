@@ -9,19 +9,15 @@ require 'nokogiri'
 require 'open-uri'
 
 
-puts "Destroy players"
-Player.destroy_all
-puts "Destroy teams"
-Team.destroy_all
-puts "Destroy participations"
-Participation.destroy_all
-puts "Destroy ligues"
-Ligue.destroy_all
-puts "Destroy selections"
-Selection.destroy_all
 puts "Destroy line_ups"
 LineUp.destroy_all
 puts "Destroy rounds"
+Player.destroy_all
+puts "Destroy teams"
+Team.destroy_all
+puts "Destroy ligues"
+Ligue.destroy_all
+puts "Destroy selections"
 Round.destroy_all
 puts "Destroy users"
 User.destroy_all
@@ -123,56 +119,56 @@ end
 end
 players = Player.create([
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'prop',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'hooker',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'locky',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'thirdrow',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'scrumhalf',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'flyhalf',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'centre',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'wing',
   },
   {
-    first_name: 'default',
-    last_name: 'default',
+    first_name: '',
+    last_name: '',
     team: Team.find_by_name('Default'),
     position: 'fullback',
   },
