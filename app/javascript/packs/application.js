@@ -31,5 +31,8 @@ import { initSearchListener } from '../components/form';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initSearchListener();
+  const selectAllModales = document.querySelectorAll('.modal.fade');
+  selectAllModales.forEach(modale => {
+    initSearchListener(modale);
+  });
 });

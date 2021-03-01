@@ -21,9 +21,10 @@
     <h3 class="languette-container-title">Mon équipe <%= @line_up.budget %> Bieres</h3>
     <div class="terrain">
       <% @line_up.selections.order(:terrain_position).each do |selection| %>
-      <%= render "players_modale", selection: selection %>
+        <%= render "players_modale", selection: selection %>
       <% end %>
     </div>
+    
     <%= render 'shared/navbar' %>
   </div>
 </div>
