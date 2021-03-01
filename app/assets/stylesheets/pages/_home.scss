@@ -9,7 +9,7 @@ h1 {
   align-items: center;
   justify-content: center;
   position: fixed;
-  color: white;
+  color: $white;
   top: 0;
   left: 0;
   right: 0;
@@ -54,6 +54,26 @@ nav {
       translateX(-16.66%)
       rotateY(25deg);
   }
+}
+
+.main-container {
+    height: 100vh;
+    background-color: $green;
+}
+body {
+}
+a:hover {
+    color:unset;
+    text-decoration: none;
+}
+.home-page-container {
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-page-btn a {
+  margin: 20px 0px;
 }
 
 
