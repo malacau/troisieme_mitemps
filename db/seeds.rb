@@ -261,46 +261,70 @@ puts "Début création du round tomorrow"
 puts "Fin création du round tomorrow"
 
 puts "Début création des Seeds Users"
-user1 = User.create(
+file = URI.open("http://res.cloudinary.com/dbmddnd6a/image/upload/v1613747135/Gabriel.jpg")
+user1 = User.new(
     nickname: "Gabriel",
     email: "gabriel@example.fr",
     password: "azerty",
   )
-user2 = User.create(
+user1.photo.attach(io: file, filename: 'Gabriel.jpg', content_type: 'image/jpg')
+user1.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1613747084/Quentin.jpg")
+user2 = User.new(
     nickname: "Quentin",
     email: "quentin@example.fr",
     password: "azerty",
   )
-user3 = User.create(
+user2.photo.attach(io: file, filename: 'Quentin.jpg', content_type: 'image/jpg')
+user2.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614690022/Benjamin.jpg")
+user3 = User.new(
     nickname: "Benjamin",
     email: "benjamin@example.fr",
     password: "azerty",
   )
-user4 = User.create(
+user3.photo.attach(io: file, filename: 'Benjamin.jpg', content_type: 'image/jpg')
+user3.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614689811/Benoit.png")
+user4 = User.new(
     nickname: "Benoit",
     email: "benoit@example.fr",
     password: "azerty",
   )
-user5 = User.create(
+user4.photo.attach(io: file, filename: 'Benoit.jpg', content_type: 'image/jpg')
+user4.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614613419/Maxime.jpg")
+user5 = User.new(
     nickname: "Maxime",
     email: "maxime@example.fr",
     password: "azerty",
   )
-user6 = User.create(
+user5.photo.attach(io: file, filename: 'Maxime.jpg', content_type: 'image/jpg')
+user5.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614689628/Antoine.jpg")
+user6 = User.new(
     nickname: "Antoine",
     email: "antoine@example.fr",
     password: "azerty",
   )
-user7 = User.create(
+user6.photo.attach(io: file, filename: 'Antoine.jpg', content_type: 'image/jpg')
+user6.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614340483/Bryan.jpg")
+user7 = User.new(
     nickname: "Bryan",
     email: "bryan@example.fr",
     password: "azerty",
   )
-user8 = User.create(
+user7.photo.attach(io: file, filename: 'Bryan.jpg', content_type: 'image/jpg')
+user7.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614613553/Marco.jpg")
+user8 = User.new(
     nickname: "Marco",
     email: "marco@example.fr",
     password: "azerty",
   )
+user8.photo.attach(io: file, filename: 'Marco.jpg', content_type: 'image/jpg')
+user8.save
 puts "Fin de la création des Seeds Users"
 
 
