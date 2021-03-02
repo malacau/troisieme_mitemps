@@ -5,7 +5,7 @@ class LineUp < ApplicationRecord
   has_many :players, through: :selections
   has_many :teams, through: :players
 
-    def score
-      self.selections.map(&:rating).sum
-    end
+  def total_line_up
+    self.score = selections.map(&:rating).sum
+  end
 end

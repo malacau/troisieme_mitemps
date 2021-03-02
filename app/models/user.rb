@@ -18,6 +18,11 @@ class User < ApplicationRecord
     line_ups.where(round: Round.current).first
   end
 
+  def update_participation_score
+    self.participations.each do |participation|
+      participation.score += self.current_line_up.total_line_up
+  end
+
   def create_current_line_up
     current_round = Round.current
     if current_line_up
