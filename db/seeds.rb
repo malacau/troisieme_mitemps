@@ -28,58 +28,73 @@ puts "Début création des seeds teams"
     {
       name: 'Agen',
       icon: 'maillot-agen.png'
+      city: 'Agen'
     },
     {
       name: 'Bayonne',
       icon: 'maillot-bayonne.png'
+      city: 'Bayonne'
     },
     {
       name: 'Union Bordeaux Begles',
       icon: 'maillot-bordeaux-begles.png'
+      city: 'Bordeaux Begles'
     },
     {
       name: 'Brive',
       icon: 'maillot-brive.png'
+      city: 'Brive'
     },
     {
       name: 'Castres',
       icon: 'maillot-castres.png'
+      city: 'Castres'
     },
     {
       name: 'Clermont',
       icon: 'maillot-clermont.png'
+      city: 'Clermont Auvergne'
     },
     {
       name: 'La Rochelle',
       icon: 'maillot-la-rochelle.png'
+      city: 'La Rochelle'
     },
     {
       name: 'LOU',
       icon: 'maillot-lyon.png'
+      city: 'Lyon'
     },
     {
       name: 'Montpellier',
       icon: 'maillot-montpellier.png'
+      city: 'Montpellier'
     },
     {
       name: 'Pau',
       icon: 'maillot-pau.png'
+      city: 'Pau'
     },
     {
       name: 'Racing Metro 92',
       icon: 'maillot-racing-92.png'
+      city: 'Racing 92'
     },
     {
       name: 'Stade Français',
       icon: 'maillot-stade-francais.png'
+      city: 'Stade Francais'
+
     },
     {
       name: 'Stade Toulousain',
       icon: 'maillot-stade-toulousain.png'
+      city: 'Toulouse'
     },
     {
       name: 'Toulon',
       icon: 'maillot-toulon.png'
+      city: 'Toulon'
     },
     {
       name: 'Default',
@@ -233,5 +248,3 @@ puts "Fin de la création des Seeds players"
 puts "Début création du round"
   Round.create(game_date: Date.tomorrow)
 puts "Fin création du round"
-
-

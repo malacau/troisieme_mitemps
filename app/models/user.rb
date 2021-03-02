@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :nickname, presence: true, uniqueness: true
 
-   validates :photo, presence: true
+   #validates :photo, presence: true
 
   # validate :photo_is_attached?
 
