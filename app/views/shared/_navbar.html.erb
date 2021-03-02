@@ -1,6 +1,6 @@
 <div class="container-navbar">
   <div class="main-navbar">
-    <%= link_to line_up_path(current_user.line_ups.last) do %><div><i class="fas fa-tshirt"></i></div><% end %>
+    <%= link_to line_up_path(current_user.current_line_up) do %><div><i class="fas fa-tshirt"></i></div><% end %>
     <%= link_to ligues_path do %><div><i class="fas fa-trophy"></i></div><% end %>
     <%= link_to "#" do %><div><i class="fas fa-book"></i></div><% end %>  
     <%= link_to destroy_user_session_path, method: :delete do %><div><i class="fas fa-user-cog"></i></div><% end %> 

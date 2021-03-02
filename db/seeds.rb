@@ -135,55 +135,55 @@ end
 players = Player.create([
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'prop',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'hooker',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'locky',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'thirdrow',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'scrumhalf',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'flyhalf',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'centre',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'wing',
   },
   {
     first_name: '',
-    last_name: '',
+    last_name: 'Ajouter joueur',
     team: Team.find_by_name('Default'),
     position: 'fullback',
   },
@@ -193,58 +193,155 @@ players = Player.create([
 puts "Fin de la création des Seeds players"
 
 
-# puts "Début création des Seeds Users"
-# user = User.new(
-#     nickname: "Quentin",
-#     email: "quentin@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRDXMRNJ-553c0cb660fa-512.jpeg"
-#   )
-# user_photo = URI.open('https://ca.slack-edge.com/T02NE0241-U01HRDXMRNJ-553c0cb660fa-512.jpeg')
-# user2 = User.create(
-#     nickname: "Gabriel",
-#     email: "gabriel@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRJNF938-af9037e183ed-512.jpeg"
-#   )
-# user3 = User.create(
-#     nickname: "Benjamin",
-#     email: "benjamin@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01J0KFJJH1-53dbc03e5446-512.jpeg"
-#   )
-# user4 = User.create(
-#     nickname: "Benoit",
-#     email: "benoit@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01JB57C8GH-d75cfc352f3d-512.jpeg"
-#   )
-# user5 = User.create(
-#     nickname: "Maxime",
-#     email: "maxime@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HVGWM78V-ca173ef3cac3-512.jpeg"
-#   )
-# user6 = User.create(
-#     nickname: "Antoine",
-#     email: "antoine@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HYLYUAP5-cb0874fd17d0-512.jpeg"
-#   )
-# user7 = User.create(
-#     nickname: "Bryan",
-#     email: "bryan@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRFZ8SP8-b9dbacfc72df-512.jpeg"
-#   )
-# user8 = User.create(
-#     nickname: "Marco",
-#     email: "marco@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HV81Q1HT-cb8748b0be8a-512.jpeg"
-#   )
-# puts "Fin de la création des Seeds Users"
+puts "Début mise à jour de la côte des joueurs"
+  default = Team.find_by(name: 'Default')
+    default.players.each do |player| player.cote = 0
+    player.save
+  end
 
-puts "Début création du round"
+  agen = Team.find_by(name: 'Agen')
+    agen.players.each do |player| player.cote = 5
+    player.save
+  end
+
+  bayonne = Team.find_by(name: 'Bayonne')
+    bayonne.players.each do |player| player.cote = 6
+    player.save
+  end
+
+  ubb = Team.find_by(name: 'Union Bordeaux Begles')
+  ubb.players.each do |player| player.cote = 14
+    player.save
+  end
+
+  brive = Team.find_by(name: 'Brive')
+    brive.players.each do |player| player.cote = 10
+    player.save
+  end
+
+  castres = Team.find_by(name: 'Castres')
+    castres.players.each do |player| player.cote = 9
+    player.save
+  end
+
+  clermont = Team.find_by(name: 'Clermont')
+    clermont.players.each do |player| player.cote = 15
+    player.save
+  end
+
+  larochelle = Team.find_by(name: 'La Rochelle')
+    larochelle.players.each do |player| player.cote = 17
+    player.save
+  end
+
+  lou = Team.find_by(name: 'LOU')
+    lou.players.each do |player| player.cote = 12
+    player.save
+  end
+
+  montpellier = Team.find_by(name: 'Montpellier')
+    montpellier.players.each do |player| player.cote = 8
+    player.save
+  end
+
+  pau = Team.find_by(name: 'Pau')
+    pau.players.each do |player| player.cote = 7
+    player.save
+  end
+
+  racing = Team.find_by(name: 'Racing Metro 92')
+    racing.players.each do |player| player.cote = 16
+    player.save
+  end
+
+  stadefr = Team.find_by(name: 'Stade Français')
+    stadefr.players.each do |player| player.cote = 11
+    player.save
+  end
+
+  toulouse = Team.find_by(name: 'Stade Toulousain')
+    toulouse.players.each do |player| player.cote = 18
+    player.save
+  end
+
+  toulon = Team.find_by(name: 'Toulon')
+    toulon.players.each do |player| player.cote = 13
+    player.save
+  end
+
+puts "Fin mise à jour de la côte des joueurs"
+
+puts "Début création du round tomorrow"
   Round.create(game_date: Date.tomorrow)
-puts "Fin création du round"
+
+puts "Fin création du round tomorrow"
+
+puts "Début création des Seeds Users"
+file = URI.open("http://res.cloudinary.com/dbmddnd6a/image/upload/v1613747135/Gabriel.jpg")
+user1 = User.new(
+    nickname: "Gabriel",
+    email: "gabriel@example.fr",
+    password: "azerty",
+  )
+user1.photo.attach(io: file, filename: 'Gabriel.jpg', content_type: 'image/jpg')
+user1.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1613747084/Quentin.jpg")
+user2 = User.new(
+    nickname: "Quentin",
+    email: "quentin@example.fr",
+    password: "azerty",
+  )
+user2.photo.attach(io: file, filename: 'Quentin.jpg', content_type: 'image/jpg')
+user2.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614690022/Benjamin.jpg")
+user3 = User.new(
+    nickname: "Benjamin",
+    email: "benjamin@example.fr",
+    password: "azerty",
+  )
+user3.photo.attach(io: file, filename: 'Benjamin.jpg', content_type: 'image/jpg')
+user3.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614689811/Benoit.png")
+user4 = User.new(
+    nickname: "Benoit",
+    email: "benoit@example.fr",
+    password: "azerty",
+  )
+user4.photo.attach(io: file, filename: 'Benoit.jpg', content_type: 'image/jpg')
+user4.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614613419/Maxime.jpg")
+user5 = User.new(
+    nickname: "Maxime",
+    email: "maxime@example.fr",
+    password: "azerty",
+  )
+user5.photo.attach(io: file, filename: 'Maxime.jpg', content_type: 'image/jpg')
+user5.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614689628/Antoine.jpg")
+user6 = User.new(
+    nickname: "Antoine",
+    email: "antoine@example.fr",
+    password: "azerty",
+  )
+user6.photo.attach(io: file, filename: 'Antoine.jpg', content_type: 'image/jpg')
+user6.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614340483/Bryan.jpg")
+user7 = User.new(
+    nickname: "Bryan",
+    email: "bryan@example.fr",
+    password: "azerty",
+  )
+user7.photo.attach(io: file, filename: 'Bryan.jpg', content_type: 'image/jpg')
+user7.save
+file = URI.open("https://res.cloudinary.com/dbmddnd6a/image/upload/v1614613553/Marco.jpg")
+user8 = User.new(
+    nickname: "Marco",
+    email: "marco@example.fr",
+    password: "azerty",
+  )
+user8.photo.attach(io: file, filename: 'Marco.jpg', content_type: 'image/jpg')
+user8.save
+puts "Fin de la création des Seeds Users"
+
+
+Round.create(game_date: Date.yesterday)

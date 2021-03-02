@@ -1,23 +1,30 @@
 <div class="main-container">
-  <div class="top-view">
-    <div class="top-view-title">
-      <h1><%= @ligue.name %></h1>
-    </div>
-    <div class="top-view-content">
-      <div class="top-view-content-main">
-        <div class="top-view-content-trophee">
-          <i class="fas fa-trophy"></i>
-        </div>
-        <div class="top-view-content-position">
-          <h3>Ma position</h3>
-          <h3>1er <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
-        </div>
+<div class="top-view">
+  <div class="top-view-title">
+    <h1><%= @ligue.name %></h1>
+  </div>
+  <div class="top-view-content">
+    <div class="top-view-content-main">
+      <div class="top-view-content-trophee">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="top-view-content-position">
+        <h3>Ma position</h3>
+        <h3>
+        <% if(@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) == 0 %>
+          <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> er
+        <% else %>
+          <%= (@ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> ème
+        <% end %>
+
+        <span>- <%= @ligue.participations.find{|participation| participation.user == current_user}.score %> points</span></h3>
       </div>
     </div>
-    <div class="players-information">
-      <p> <%= @ligue.users.count %> joueurs s'affrontent dans cette ligue</p>
-    </div>
   </div>
+  <div class="players-information">
+    <p> <%= @ligue.users.count %> joueurs s'affrontent dans cette ligue</p>
+  </div>
+</div>
   <div class="languette-container">
     <div class="px-4">
     <%= render 'shared/navbar-ligue' %>

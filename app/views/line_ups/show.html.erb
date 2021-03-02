@@ -1,3 +1,4 @@
+
 <div class="main-container">
   <div class="top-view">
     <div class="top-view-title">
@@ -18,12 +19,16 @@
     </div>
   </div>
   <div class="languette-container">
-    <h3 class="languette-container-title">Mon équipe <%= @line_up.budget %> Bieres</h3>
+    <div class="languette-header">
+    <h3 class="languette-container-title">Mon équipe</h3> 
+    <span class="budget">Budget : <%= @line_up.budget %> <i class="fas fa-coins"></i></span>
+    </div>
     <div class="terrain">
       <% @line_up.selections.order(:terrain_position).each do |selection| %>
-      <%= render "players_modale", selection: selection %>
+      <%= render "players_modale", selection: selection, line_up_teams: @line_up_teams %>
       <% end %>
     </div>
+
     <%= render 'shared/navbar' %>
   </div>
 </div>

@@ -1,8 +1,15 @@
-
 <div class="home-page-container">
   <div class="home-page-btn">
-    <%= link_to "ligues", ligues_path, class: "button-large text-center" %>
-    <%= link_to "sign-in", new_user_session_path, class: "button-large text-center" %>
-    <%= link_to destroy_user_session_path, method: :delete do %><div><i class="fas fa-user-cog button-large text-center"></i></div><% end %>
+    <nav class="layer">
+      <ul>
+        <li> <%= link_to "ligues", ligues_path, class: "button-large text-center" %></li>
+          <li> <%= link_to "sign-in", new_user_session_path, class: "button-large text-center" %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %><div><i class="fas fa-user-cog button-large text-center"></i></div><% end %></li>
+        </ul>
+      </nav>
+    </div>
   </div>
-</div>
+
+  <section class="home page layer">
+    <h1><br>3ème Mi-Temps</h1>
+  </section>

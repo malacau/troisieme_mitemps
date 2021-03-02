@@ -6,11 +6,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :nickname, presence: true, uniqueness: true
 
-   #validates :photo, presence: true
-
   # validate :photo_is_attached?
-
-
   has_many :messages
   has_many :participations
   has_many :line_ups

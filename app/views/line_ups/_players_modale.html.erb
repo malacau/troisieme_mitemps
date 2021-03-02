@@ -12,41 +12,53 @@
         </button>
       </div>
       <div class="modal-body">
+        <p><strong>Mon budget : <%= @line_up.budget %> <i class="fas fa-coins"></i></strong></p>
         <%= simple_form_for(:request, url: search_path, method: :post, remote: true) do |f| %>
-          <div id="searchplayerform" data-selection-id="<%= selection.id %>">
+          <div class="searchplayerform" data-selection-id="<%= selection.id %>">
             <div class="row justify-content-center align-items-center">
               <div class="col-12 d-flex justify-content-center">
                 <div class="row w-50">
                   <div class="col-9 px-2 my-auto">
-                    <%= f.input :last_name, placeholder: "Player's name", label: false %>
+                    <%= f.input :last_name, placeholder: "Nom du joueur", label: false %>
                   </div>
                   <div class="col-3 d-flex px-0">
-                    <%= f.button :submit, "Search", class: "home-btn" %>
+                    <%= f.button :submit, "Rechercher", class: "button-small" %>
                   </div>
                 </div>
                 </div>
               </div>
-              <br>
               <div class="row justify-content-center align-items-center">
                 <div class="col-3">
-                  <%= f.input :team, placeholder: "How much for him, you cheapfuck", collection: Team.all.map(&:name) %>
+                  <%= f.input :team, placeholder: "Équipes", collection: @teams %>
                 </div>
             </div>
           </div>
         <% end %>
         <div class="card-player-grid" id="players-<%= selection.id %>">
         <%# <%= render 'selection_players_modale', players: Player.where(position: selection.player.position).first(10) %>
-          <% Player.where(position: selection.player.position).order(:id).reject{|player| player.selections.first.line_up == @line_up if player.selections.first}.each do |player| %>
+          <% Player.selectable_for(selection).each do |player| %>
             <% if player.cote > selection.line_up.budget %>
               <div class="card-player disable">
                 <div class="card-player-content">
                   <%= image_tag player.team.icon %>
                 <div class="card-player-title">
-                  <p><%= player.first_name[1] %>. <%= player.last_name %></p>
+                  <p><%= player.first_name[1] %>. <%= player.last_name %> 💸 </p>
                 </div>
-                <%# <div class="player-rating">
-                8.4 <i class="fas fa-star"></i>
-                </div> %>
+                 <div class="player-rating">
+                    <%= player.cote %> <i class="fas fa-coins"></i>
+                </div>
+                </div>
+              </div>
+            <% elsif @line_up_teams_id.select {|id| id == player.team_id}.count >= 3 %>
+              <div class="card-player disable">
+                <div class="card-player-content">
+                  <%= image_tag player.team.icon %>
+                <div class="card-player-title">
+                  <p><%= player.first_name[1] %>. <%= player.last_name %> 🙅‍♂️4️⃣ </p>
+                </div>
+                 <div class="player-rating">
+                    <%= player.cote %> <i class="fas fa-coins"></i>
+                </div>
                 </div>
               </div>
             <% else %>
@@ -58,7 +70,7 @@
                       <p><%= player.first_name[1] %>. <%= player.last_name %></p>
                     </div>
                     <div class="player-rating">
-                      8.4 <i class="fas fa-star"></i>
+                      <%= player.cote %> <i class="fas fa-coins"></i>
                     </div>
                   </div>
                 </div>
@@ -71,6 +83,6 @@
   </div>
 </div>
 
-<%# #en JS retrouver le formulaire (query selector) , poser un écouteur sur le formulaire , 
+<%# #en JS retrouver le formulaire (query selector) , poser un écouteur sur le formulaire ,
 #dès qu'on clique submit, retrouver les valeurs dans les inputs
 #une fois input retrouvé, faire fetch sur player index, utislier le résultat dans la partiale de players id %>

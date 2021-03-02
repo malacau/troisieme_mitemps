@@ -19,6 +19,17 @@
     font-size: 18px;
     font-weight: 600;
 }
+.button-small {
+    display: block;
+    margin: auto;
+    background-color: $green;
+    border-radius: 6px;
+    padding: 8px 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
 
 .button-white {
     display: block;
