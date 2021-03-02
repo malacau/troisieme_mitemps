@@ -28,7 +28,7 @@
               </div>
               <div class="row justify-content-center align-items-center">
                 <div class="col-3">
-                  <%= f.input :team, placeholder: "Équipes", collection: Team.all.map(&:name) %>
+                  <%= f.input :team, placeholder: "Équipes", collection: @teams %>
                 </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
                 </div>
                 </div>
               </div>
-            <% elsif @line_up_teams.select {|team| team == player.team.name}.count >= 3 %>
+            <% elsif @line_up_teams_id.select {|id| id == player.team_id}.count >= 3 %>
               <div class="card-player disable">
                 <div class="card-player-content">
                   <%= image_tag player.team.icon %>
