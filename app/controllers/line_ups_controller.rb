@@ -4,9 +4,7 @@ class LineUpsController < ApplicationController
     end
     def show
         @line_up = LineUp.find(params[:id])
-        @line_up_teams = []
-        @line_up.selections.each do |selection|
-          @line_up_teams << selection.player.team.name
-        end
+        @line_up_teams_id = @line_up.teams.map(&:id)
+        @teams = Team.all.map(&:name)
     end
 end

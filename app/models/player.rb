@@ -8,7 +8,7 @@ class Player < ApplicationRecord
   end
 
   def self.selectable_for(selection)
-    self.where(position: selection.player.position)
+    self.includes(:team).where(position: selection.player.position)
           .order(:id)
           .where.not(id: selection.line_up.players.map(&:id))
   end
