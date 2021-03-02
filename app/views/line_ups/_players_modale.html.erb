@@ -2,7 +2,7 @@
   <%= image_tag selection.player.team.icon %>
   <p><span><%= selection.player.last_name %></span></p>
 </div>
-<div class="modal fade" id="exampleModalLong-<%= selection.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalLong-<%= selection.id %>" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -19,8 +19,8 @@
             <div class="row justify-content-center align-items-center">
               <div class="col-12 d-flex justify-content-center">
                 <div class="row w-50">
-                  <div class="col-9 px-2 my-auto">
-                    <%= f.input :last_name, placeholder: "Nom du joueur", label: false %>
+                  <div class="col-9">
+                   <%= f.input :last_name, input_html: { id: "select2-#{selection.terrain_position}" }, collection: Player.all.map(&:last_name)  %>
                   </div>
                   <div class="col-3 d-flex px-0">
                     <%= f.button :submit, "Rechercher", class: "button-small" %>
@@ -29,8 +29,8 @@
                 </div>
               </div>
               <div class="row justify-content-center align-items-center">
-                <div class="col-3">
-                  <%= f.input :team, placeholder: "Équipes", collection: @teams %>
+                <div class="col-9">
+                  <%= f.input :team, placeholder: "Équipes", collection: Team.all.map(&:name) %>
                 </div>
             </div>
           </div>
