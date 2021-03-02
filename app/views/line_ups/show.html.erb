@@ -9,17 +9,20 @@
     <div class="top-view-content">
       <div class="top-view-content-main">
         <div class="top-view-content-trophee">
-          <i class="fas fa-trophy"></i>
+          <%= image_tag "beer_rugby.png" %>
         </div>
         <div class="top-view-content-position">
-          <h3>Votre score</h3>
+          <h3>Votre score: </h3>
           <h3><span><%= @line_up.score %> points</span></h3>
         </div>
       </div>
     </div>
   </div>
   <div class="languette-container">
-    <h3 class="languette-container-title">Mon équipe, <%= @line_up.budget %> <i class="fas fa-coins"></i> </h3>
+    <div class="languette-header">
+    <h3 class="languette-container-title">Mon équipe</h3> 
+    <span class="budget">Budget : <%= @line_up.budget %> <i class="fas fa-coins"></i></span>
+    </div>
     <div class="terrain">
       <% @line_up.selections.order(:terrain_position).each do |selection| %>
       <%= render "players_modale", selection: selection, line_up_teams: @line_up_teams %>

@@ -12,13 +12,19 @@
     justify-content: center;
     & img {
         height: 110px;
-        object-fit: cover;
+        object-fit: contain;
 
     }
 }
 
+.fa-coins {
+    color: #ECC10B;
+}
+
 .card-player-content {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-player-title p {

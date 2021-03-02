@@ -5,7 +5,7 @@
       <div class="card-player-content">
         <%= image_tag player.team.icon %>
       <div class="card-player-title">
-        <p><%= player.first_name[1] %>. <%= player.last_name %></p>
+        <p><%= player.first_name[1] %>. <%= player.last_name.truncate(15) %></p>
       </div>
          <div class="player-rating">
           <%= player.cote %> <i class="fas fa-coins"></i>
@@ -17,7 +17,7 @@
         <div class="card-player-content">
           <%= image_tag player.team.icon %>
         <div class="card-player-title">
-          <p><%= player.first_name[1] %>. <%= player.last_name %> 🙅‍♂️4️⃣ </p>
+          <p><%= player.first_name[1] %>. <%= player.last_name.truncate(15) %></p>
         </div>
          <div class="player-rating">
             <%= player.cote %> <i class="fas fa-coins"></i>
@@ -30,7 +30,7 @@
         <div class="card-player-content">
             <%= image_tag player.team.icon %>
           <div class="card-player-title">
-            <p><%= player.first_name[1] %>. <%= player.last_name %></p>
+            <p><%= player.first_name[1] %>. <%= player.last_name.truncate(15) %></p>
           </div>
           <div class="player-rating">
             <%= player.cote %> <i class="fas fa-coins"></i>
