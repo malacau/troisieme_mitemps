@@ -12,4 +12,14 @@ class Player < ApplicationRecord
           .order(:id)
           .where.not(id: selection.line_up.players.map(&:id))
   end
+
+   def score
+    if team.won?
+      50
+    elsif team.drawn?
+      20
+    else
+      0
+    end
+  end
 end

@@ -21,6 +21,7 @@ class User < ApplicationRecord
   def update_participation_score
     self.participations.each do |participation|
       participation.score += self.current_line_up.total_line_up
+    end
   end
 
   def create_current_line_up
