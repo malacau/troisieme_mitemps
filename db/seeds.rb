@@ -178,57 +178,6 @@ players = Player.create([
 puts "Fin de la création des Seeds players"
 
 
-# puts "Début création des Seeds Users"
-# user = User.new(
-#     nickname: "Quentin",
-#     email: "quentin@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRDXMRNJ-553c0cb660fa-512.jpeg"
-#   )
-# user_photo = URI.open('https://ca.slack-edge.com/T02NE0241-U01HRDXMRNJ-553c0cb660fa-512.jpeg')
-# user2 = User.create(
-#     nickname: "Gabriel",
-#     email: "gabriel@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRJNF938-af9037e183ed-512.jpeg"
-#   )
-# user3 = User.create(
-#     nickname: "Benjamin",
-#     email: "benjamin@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01J0KFJJH1-53dbc03e5446-512.jpeg"
-#   )
-# user4 = User.create(
-#     nickname: "Benoit",
-#     email: "benoit@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01JB57C8GH-d75cfc352f3d-512.jpeg"
-#   )
-# user5 = User.create(
-#     nickname: "Maxime",
-#     email: "maxime@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HVGWM78V-ca173ef3cac3-512.jpeg"
-#   )
-# user6 = User.create(
-#     nickname: "Antoine",
-#     email: "antoine@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HYLYUAP5-cb0874fd17d0-512.jpeg"
-#   )
-# user7 = User.create(
-#     nickname: "Bryan",
-#     email: "bryan@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HRFZ8SP8-b9dbacfc72df-512.jpeg"
-#   )
-# user8 = User.create(
-#     nickname: "Marco",
-#     email: "marco@example.fr",
-#     password: "azerty",
-#     photo: "https://ca.slack-edge.com/T02NE0241-U01HV81Q1HT-cb8748b0be8a-512.jpeg"
-#   )
-# puts "Fin de la création des Seeds Users"
 puts "Début mise à jour de la côte des joueurs"
   default = Team.find_by(name: 'Default')
     default.players.each do |player| player.cote = 0
@@ -307,11 +256,52 @@ puts "Début mise à jour de la côte des joueurs"
 
 puts "Fin mise à jour de la côte des joueurs"
 
-
-
-puts "Début création du round"
+puts "Début création du round tomorrow"
   Round.create(game_date: Date.tomorrow)
-puts "Fin création du round"
+puts "Fin création du round tomorrow"
+
+puts "Début création des Seeds Users"
+user1 = User.create(
+    nickname: "Gabriel",
+    email: "gabriel@example.fr",
+    password: "azerty",
+  )
+user2 = User.create(
+    nickname: "Quentin",
+    email: "quentin@example.fr",
+    password: "azerty",
+  )
+user3 = User.create(
+    nickname: "Benjamin",
+    email: "benjamin@example.fr",
+    password: "azerty",
+  )
+user4 = User.create(
+    nickname: "Benoit",
+    email: "benoit@example.fr",
+    password: "azerty",
+  )
+user5 = User.create(
+    nickname: "Maxime",
+    email: "maxime@example.fr",
+    password: "azerty",
+  )
+user6 = User.create(
+    nickname: "Antoine",
+    email: "antoine@example.fr",
+    password: "azerty",
+  )
+user7 = User.create(
+    nickname: "Bryan",
+    email: "bryan@example.fr",
+    password: "azerty",
+  )
+user8 = User.create(
+    nickname: "Marco",
+    email: "marco@example.fr",
+    password: "azerty",
+  )
+puts "Fin de la création des Seeds Users"
 
 
-
+Round.create(game_date: Date.yesterday)

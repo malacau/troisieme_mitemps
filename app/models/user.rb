@@ -7,8 +7,6 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true
 
-   validates :photo, presence: true
-
   # validate :photo_is_attached?
 
 
