@@ -5,15 +5,15 @@ class Team < ApplicationRecord
   has_many :players
   enum results: [:won, :drawn, :lost]
 
-  def score
-    if won?
-      50
-    elsif drawn?
-      20
-    else
-      0
-    end
-  end
+  # def score
+  #   if won?
+  #     50
+  #   elsif drawn?
+  #     20
+  #   else
+  #     0
+  #   end
+  # end
 
   def self.update_result_teams
     result = RestClient::Request.execute(method: :get, url: 'https://rugby-live-data.p.rapidapi.com/fixtures/1230/2021', headers: {'x-rapidapi-key' => 'b68feda314mshc3fa35e38ccd559p1729eajsn8ecb020639db', 'x-rapidapi-host' => 'rugby-live-data.p.rapidapi.com'})

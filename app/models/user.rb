@@ -15,25 +15,36 @@ class User < ApplicationRecord
   after_create :create_current_line_up
 
   def current_line_up
-    line_ups.where(round: Round.current).first
+    # line_ups.where(round: Round.current).first
+    line_ups.last
   end
 
   def update_participation_score
     self.participations.each do |participation|
-      participation.score += self.current_line_up.total_line_up
+      participation.score += current_line_up.score
+      participation.save
     end
   end
 
   def create_current_line_up
-    current_round = Round.current
+    # current_round = Round.current
+    current_round = Round.last
     if current_line_up
-      line_up = current_line_up.clone
+      selections = current_line_up.selections
+      line_up = current_line_up.dup
+      line_up.score = 0
       line_up.round = current_round
       line_up.save
+      selections.each do |prev_selection|
+        sel = prev_selection.dup
+        sel.line_up = line_up
+        sel.rating = 0
+        sel.save
+      end
     else
       n = 1
       line_up = self.line_ups.create(round: current_round)
-      [0,1,0,2,2,3,3,3,4,5,7,6,6,7,8].each do |i|
+      [0, 1, 0, 2, 2, 3, 3, 3, 4, 5, 7, 6, 6, 7, 8].each do |i|
         Selection.create(line_up: line_up, player: Team.find_by_name('Default').players[i], terrain_position: n)
         n += 1
       end
