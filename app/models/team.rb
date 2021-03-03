@@ -1,4 +1,4 @@
-require 'RestClient'
+require 'rest-client'
 require 'json'
 
 class Team < ApplicationRecord
