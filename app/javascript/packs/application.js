@@ -21,16 +21,15 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-
+//= require select2
 // External imports
 import "bootstrap";
 import { initSearchListener } from '../components/form';
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  initSelect2();
   const selectAllModales = document.querySelectorAll('.modal.fade');
   selectAllModales.forEach(modale => {
     initSearchListener(modale);
