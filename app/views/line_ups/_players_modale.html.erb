@@ -1,5 +1,9 @@
 <div class="player-lineup player-position-<%=selection.terrain_position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
   <%= image_tag selection.player.team.icon %>
+  <% player = selection.player %>
+  <% if @line_ups[-2].selections.find_by(player_id: player.id).present? %>
+  <%= @line_ups[-2].selections.find_by(player_id: player.id).rating %>
+  <% end %>
   <p><span><%= selection.player.last_name %></span></p>
 </div>
 <div class="modal fade" id="exampleModalLong-<%= selection.id %>" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

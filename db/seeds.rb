@@ -343,13 +343,13 @@ user8.photo.attach(io: file, filename: 'Marco.jpg', content_type: 'image/jpg')
 user8.save
 puts "Fin de la création des Seeds Users"
 
-puts "Update each user selections with real players"
-user1.line_ups.first.selections.each do |selection|
-  player = Player.find_by(last_name: "Dulin")
-  selection.player = player
-  selection.save!
-end
-puts "Finish updating line_up"
+# puts "Update each user selections with real players"
+# user1.line_ups.first.selections.each do |selection|
+#   player = Player.find_by(last_name: "Dulin")
+#   selection.player = player
+#   selection.save!
+# end
+# puts "Finish updating line_up"
 
 # Round.create(game_date: Date.yesterday).new_round
 # Round.create(game_date: Date.today).new_round

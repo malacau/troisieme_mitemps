@@ -13,19 +13,19 @@
         </div>
         <div class="top-view-content-position">
           <h3>Votre score: </h3>
-          <h3><span><%= @line_up.score %> points</span></h3>
+          <h3><span><%= @line_ups[-2].score %> points</span></h3>
         </div>
       </div>
     </div>
   </div>
   <div class="languette-container">
     <div class="languette-header">
-    <h3 class="languette-container-title">Mon équipe</h3> 
+    <h3 class="languette-container-title">Mon équipe</h3>
     <span class="budget">Budget : <%= @line_up.budget %> <i class="fas fa-coins"></i></span>
     </div>
     <div class="terrain">
       <% @line_up.selections.order(:terrain_position).each do |selection| %>
-      <%= render "players_modale", selection: selection, line_up_teams: @line_up_teams %>
+      <%= render "players_modale", selection: selection, line_up_teams: @line_up_teams, line_ups: @line_ups  %>
       <% end %>
     </div>
 
