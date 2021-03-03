@@ -44,7 +44,3 @@ class Team < ApplicationRecord
     end
   end
 end
-
-Team.update_result_teams
-
-
