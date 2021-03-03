@@ -1,9 +1,13 @@
 <div class="player-lineup player-position-<%=selection.terrain_position%>" data-toggle="modal" data-target="#exampleModalLong-<%= selection.id %>">
   <%= image_tag selection.player.team.icon %>
-  <% player = selection.player %>
-  <% if @line_ups[-2].selections.find_by(player_id: player.id).present? %>
-  <%= @line_ups[-2].selections.find_by(player_id: player.id).rating %>
-  <% end %>
+    <% player = selection.player %>
+    <% if  @line_ups[-2].present?%>
+      <% if @line_ups[-2].selections.find_by(player_id: player.id).present? %>
+        <span class="player-terrain-note">
+          <%= @line_ups[-2].selections.find_by(player_id: player.id).rating %>
+        </span>
+      <% end %>
+    <% end %>
   <p><span><%= selection.player.last_name %></span></p>
 </div>
 <div class="modal fade" id="exampleModalLong-<%= selection.id %>" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -16,13 +20,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <p><strong>Mon budget : <%= @line_up.budget %> <i class="fas fa-coins"></i></strong></p>
-        <p>Maximum 3 joueurs par équipe</p>
+        <p><strong>⚠️ Mon budget : <%= @line_up.budget %> <i class="fas fa-coins"></i></strong></p>
+        <p>⚠️ Maximum 3 joueurs par équipe</p>
         <%= simple_form_for(:request, url: search_path, method: :post, remote: true) do |f| %>
           <div class="searchplayerform" data-selection-id="<%= selection.id %>">
-            <div class="row justify-content-center align-items-center">
-              <div class="col-12 d-flex justify-content-center">
-                <div class="row w-50">
+            <div class="row align-items-center">
+              <div class="col-12 d-flex">
+                <div class="row">
                   <div class="col-9">
                    <%= f.input :last_name, input_html: { id: "select2-#{selection.terrain_position}" }, collection: Player.all.map(&:last_name)  %>
                   </div>
@@ -32,7 +36,7 @@
                 </div>
                 </div>
               </div>
-              <div class="row justify-content-center align-items-center">
+              <div class="row align-items-center">
                 <div class="col-9">
                   <%= f.input :team, placeholder: "Équipes", collection: Team.all.map(&:name) %>
                 </div>

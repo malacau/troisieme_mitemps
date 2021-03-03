@@ -12,8 +12,13 @@
           <%= image_tag "beer_rugby.png" %>
         </div>
         <div class="top-view-content-position">
-          <h3>Votre score: </h3>
-          <h3><span><%= @line_ups[-2].score %> points</span></h3>
+          <h3>Mon dernier score : </h3>
+          <% if  @line_ups[-2].present?%>
+            <h3><span><%= @line_ups[-2].score %> points</span></h3>
+          <% else %>
+            <h3><span>0 point</span></h3>
+          <% end %>
+          
         </div>
       </div>
     </div>
