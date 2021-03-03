@@ -26,6 +26,19 @@
     }
 }
 
+.player-terrain-note {
+  position: absolute;
+  top: 30px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  background-color: white;
+  border-radius: 50%;
+  color: $jet;
+  font-weight: 700;
+  box-shadow: 2px 2px 0px #0e0000;
+}
+
 .player-position-1 {
     position: relative;
     top: 35px;
@@ -156,22 +169,22 @@
 .player-position-11-ligue-show {
   position: relative;
   top: -572px;
-  left: -6px;
+  left: -11px;
 }
 .player-position-12-ligue-show {
   position: relative;
   top: -671px;
-  left: 77px;
+  left: 72px;
 }
 .player-position-13-ligue-show {
   position: relative;
   top: -770px;
-  left: 160px;
+  left: 155px;
 }
 .player-position-14-ligue-show {
   position: relative;
   top: -869px;
-  left: 243px;
+  left: 238px;
 }
 .player-position-15-ligue-show {
   position: relative;

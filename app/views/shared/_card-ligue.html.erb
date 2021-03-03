@@ -5,7 +5,14 @@
         <div class="card-ligue-content-description">
             <h3> <%= ligue.name %></h3>
             <p><%= ligue.description %></p>
-            <p>🏆 Mon classement : <span>1er • <%= ligue.users.count %> joueurs</span></p>
+            <p>🏆 Mon classement : 
+            <span>
+              <% if(ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) == 0 %>
+                <%= (ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> er
+              <% else %>
+                <%= (ligue.participations.order(score: :desc).find_index{ |participation| participation.user == current_user}) + 1 %> ème
+              <% end %>
+            • <%= ligue.users.count %> joueurs</span></p>
         </div>
         <div class="card-ligue-content-photo">
             <%= cl_image_tag ligue.photo.key%>
