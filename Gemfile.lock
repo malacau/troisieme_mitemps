@@ -283,6 +283,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.5)
   rails_real_favicon
   redis (~> 4.0)
+  rest-client
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
