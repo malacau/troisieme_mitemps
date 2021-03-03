@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'nokogiri'
 require 'open-uri'
+require 'rest-client'
 
 
 puts "Destroy line_ups"
