@@ -7,5 +7,6 @@ class LineUp < ApplicationRecord
 
   def total_line_up
     self.score = selections.map(&:rating).sum
+    self.save
   end
 end
