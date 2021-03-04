@@ -9,7 +9,7 @@
         <div class="card-name">
           <h4> <%= message.user.nickname %></h4>
         </div>
-        <span class="card-message-name-content-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
+        <span class="card-message-name-content-date"><%= message.created_at.strftime("%a %b %e at %H:%M:%S") %></span>
       </div>
       <p><%= message.content %> </p>
     </div>
