@@ -29,8 +29,8 @@
   <div class="languette-container">
     <%= render 'shared/navbar-ligue' %>
     <% if @ligue.user == current_user && @ligue.participations.count < 4 %>
-    <%= simple_form_for [@ligue, @participation] do |f| %>
-      <%= f.association :user, collection: @users, label_method: :nickname%>
+    <%= simple_form_for [@ligue, @participation], html: { class: "mx-3" } do |f| %>
+      <%= f.association :user, collection: @users, label_method: :nickname, label: 'Ajouter un joueur'%>
       <%= f.button :submit, value: "Ajouter", class: "button-medium"%>
     <% end %>
     <% end %>
