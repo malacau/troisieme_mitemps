@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   resources :players, only: :index
   post "/players/search", to: "players#search", as: "search"
   resources :selections, only: [:update]
-  get "/selections/score", to: "selections#score", as: "score"
   get "/rules", to: 'pages#rules', as: "rules"
 end
