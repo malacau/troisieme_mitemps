@@ -18,6 +18,10 @@ class Player < ApplicationRecord
       50
     elsif team.drawn?
       20
+    elsif team.bonus_won?
+      60
+    elsif team.bonus_lost?
+      10
     else
       0
     end
