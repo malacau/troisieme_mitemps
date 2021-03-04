@@ -28,7 +28,7 @@
               <div class="col-12 d-flex">
                 <div class="row">
                   <div class="col-9">
-                   <%= f.input :last_name, input_html: { id: "select2-#{selection.terrain_position}" }, collection: Player.all.map(&:last_name)  %>
+                   <%= f.input :last_name, label: "Nom du joueur" ,input_html: { id: "select2-#{selection.terrain_position}" }, collection: Player.all.map(&:last_name)  %>
                   </div>
                   <div class="col-3 d-flex px-0">
                     <%= f.button :submit, "Rechercher", class: "button-small" %>
@@ -38,7 +38,7 @@
               </div>
               <div class="row align-items-center">
                 <div class="col-9">
-                  <%= f.input :team, placeholder: "Équipes", collection: Team.all.map(&:name) %>
+                  <%= f.input :team, label: "Équipe", placeholder: "Équipes", collection: Team.all.map(&:name) %>
                 </div>
             </div>
           </div>

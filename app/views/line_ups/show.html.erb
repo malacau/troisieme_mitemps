@@ -3,7 +3,7 @@
   <div class="top-view">
     <div class="top-view-title">
       <h1>
-      Bienvenue, <%= @line_up.user.nickname %>
+      Bienvenue sur 3ème mi-temps
       </h1>
     </div>
     <div class="top-view-content">
@@ -12,7 +12,7 @@
           <%= image_tag "beer_rugby.png" %>
         </div>
         <div class="top-view-content-position">
-          <h3>Mon dernier score : </h3>
+          <h3>Ton dernier score <%= @line_up.user.nickname %> : </h3>
           <% if  @line_ups[-2].present?%>
             <h3><span><%= @line_ups[-2].score %> points</span></h3>
           <% else %>
