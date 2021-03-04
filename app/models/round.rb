@@ -6,6 +6,7 @@ class Round < ApplicationRecord
   # end
 
   def new_round
+    Player.update_events_players
     Team.update_result_teams
     @users = User.all
     @users.each do |user|

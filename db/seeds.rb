@@ -118,7 +118,8 @@ end
  player_array.each do |player|
   names = []
   nom = player[0]
-  names = nom.split(",")
+  names = nom.split(",").reverse!
+  parameterized_name = names.join(' ').parameterize
   position = player[1].downcase.strip.gsub(' ', '')
   if position == "lock"
     position = "locky"
@@ -126,10 +127,11 @@ end
 
   if Team.find_by_name(player[2])
     joueur = Player.create!(
-      first_name: names[1],
-      last_name: names[0],
+      first_name: names[0].strip,
+      last_name: names[1].strip,
+      parameterized_name: parameterized_name,
       position: position,
-      team: Team.find_by_name(player[2])
+      team: Team.find_by_name(player[2]),
     )
   end
 end

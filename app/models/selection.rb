@@ -5,8 +5,7 @@ class Selection < ApplicationRecord
 
   def self.update_rating
     self.all.each do |selection|
-      selection.update(rating: selection.player.score)
+      selection.update(rating: selection.player.score + selection.player.extra)
     end
   end
-
 end
