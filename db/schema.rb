@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_102323) do
+ActiveRecord::Schema.define(version: 2021_03_04_164345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,12 @@ ActiveRecord::Schema.define(version: 2021_03_02_102323) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "average_rating"
     t.integer "cote", default: 5
+    t.integer "try", default: 0
+    t.integer "penalty", default: 0
+    t.integer "conversion", default: 0
+    t.integer "yellow_card", default: 0
+    t.integer "red_card", default: 0
+    t.string "parameterized_name"
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
