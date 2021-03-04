@@ -51,7 +51,6 @@ class Team < ApplicationRecord
               else
                 team.lost!
               end
-              team.lost!
             else
               team.drawn!
             end
