@@ -31,12 +31,12 @@ class Player < ApplicationRecord
 
   def self.update_events_players
     Player.reinitialize_performances
-    result = RestClient::Request.execute(method: :get, url: 'https://rugby-live-data.p.rapidapi.com/fixtures/1230/2021', headers: {'x-rapidapi-key' => '43747d5bf8msha60d7aa1d2002d7p132ad1jsncaf80c83e687', 'x-rapidapi-host' => 'rugby-live-data.p.rapidapi.com'})
+    result = RestClient::Request.execute(method: :get, url: 'https://rugby-live-data.p.rapidapi.com/fixtures/1230/2021', headers: {'x-rapidapi-key' => 'f48ded3530msha6a2e9cae31e548p1c1ce9jsn9a7da829c71b', 'x-rapidapi-host' => 'rugby-live-data.p.rapidapi.com'})
     json = JSON.parse(result.body)
     last_game_week = json["results"].select { |hash| hash["game_week"] == 17 }
     ids = last_game_week.map { |game| game["id"] }
     ids.each do |id|
-      bonusresult = RestClient::Request.execute(method: :get, url: "https://rugby-live-data.p.rapidapi.com/match/#{id}", headers: {'x-rapidapi-key' => '43747d5bf8msha60d7aa1d2002d7p132ad1jsncaf80c83e687', 'x-rapidapi-host' => 'rugby-live-data.p.rapidapi.com'})
+      bonusresult = RestClient::Request.execute(method: :get, url: "https://rugby-live-data.p.rapidapi.com/match/#{id}", headers: {'x-rapidapi-key' => 'f48ded3530msha6a2e9cae31e548p1c1ce9jsn9a7da829c71b', 'x-rapidapi-host' => 'rugby-live-data.p.rapidapi.com'})
       json = JSON.parse(bonusresult.body)
       events = json["results"]["events"]
       events.each do |event|
