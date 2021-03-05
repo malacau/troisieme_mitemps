@@ -120,6 +120,10 @@ ActiveRecord::Schema.define(version: 2021_03_04_164345) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "results"
     t.string "city"
+    t.integer "carry_meter", default: 0
+    t.integer "tacle", default: 0
+    t.integer "turnover", default: 0
+    t.integer "defender_beaten", default: 0
   end
 
   create_table "users", force: :cascade do |t|
