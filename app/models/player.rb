@@ -30,7 +30,7 @@ class Player < ApplicationRecord
   end
 
   def self.update_events_players
-    # Player.reinitialize_performances
+    Player.reinitialize_performances
     result = RestClient::Request.execute(method: :get, url: 'https://rugby-live-data.p.rapidapi.com/fixtures/1230/2021', headers: {'x-rapidapi-key' => '43747d5bf8msha60d7aa1d2002d7p132ad1jsncaf80c83e687', 'x-rapidapi-host' => 'rugby-live-data.p.rapidapi.com'})
     json = JSON.parse(result.body)
     last_game_week = json["results"].select { |hash| hash["game_week"] == 17 }
